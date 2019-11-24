@@ -23,7 +23,7 @@
     "@frontity/components": "^1.1.14",
     "@frontity/html2react": "^1.1.14",
     "frontity": "^1.4.2",
-    "react-spinners": "^0.5.4"
+    "react-spinners": "^0.6.1"
   },
   "gitHead": "89495b5f376c00114cc67ab666bbcc7104dadd6c"
 }

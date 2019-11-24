@@ -2,9 +2,10 @@
   "name": "odblokowany",
   "version": "1.0.0",
   "private": true,
-  "description": "Frontity project",
+  "description": "Blog zawierający informacje na temat decentralizacji",
   "keywords": [
-    "frontity"
+    "decentralization",
+    "unblocked"
   ],
   "scripts": {
     "dev": "frontity dev",
@@ -18,6 +19,6 @@
     "@frontity/wp-source": "^1.4.2",
     "@frontity/tiny-router": "^1.0.17",
     "@frontity/html2react": "^1.1.14",
-    "@frontity/mars-theme": "./packages/mars-theme"
+    "odblokowany-theme": "./packages/odblokowany-theme"
   }
 }

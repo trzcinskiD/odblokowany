@@ -1,51 +1,34 @@
 const settings = {
-  "name": "odblokowany",
-  "state": {
-    "frontity": {
-      "url": "https://test.frontity.io",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+  name: "Odblokowany",
+  state: {
+    frontity: {
+      url: "https://odblokowany.pl",
+      devUrl: "http://localhost:8000",
+      title: "Odblokowany",
+      description: "Odblokowany - informacje o decentralizacji"
     }
   },
-  "packages": [
+  packages: [
     {
-      "name": "@frontity/mars-theme",
-      "state": {
-        "theme": {
-          "menu": [
-            [
-              "Home",
-              "/"
-            ],
-            [
-              "Nature",
-              "/category/nature/"
-            ],
-            [
-              "Travel",
-              "/category/travel/"
-            ],
-            [
-              "Japan",
-              "/tag/japan/"
-            ],
-            [
-              "About Us",
-              "/about-us/"
-            ]
-          ],
-          "featured": {
-            "showOnList": false,
-            "showOnPost": false
-          }
+      name: "odblokowany-theme",
+      state: {
+        theme: {
+          menu: [
+            ["Strona główna", "/"],
+            ["Decentralizacja", "/decentralization"],
+            ["Blockchain", "/blockchain"],
+            ["Recenzje", "/reviews"],
+            ["Inne", "/other"],
+            ["O mnie", "/about"]
+          ]
         }
       }
     },
     {
-      "name": "@frontity/wp-source",
-      "state": {
-        "source": {
-          "api": "http://localhost:8000/wp-json"
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "http://localhost:8000/wp-json"
         }
       }
     },
