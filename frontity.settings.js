@@ -14,7 +14,7 @@ const settings = {
       state: {
         theme: {
           menu: [
-            ["Strona główna", "/"],
+            ["logo", "/"],
             ["Decentralizacja", "/decentralization"],
             ["Blockchain", "/blockchain"],
             ["Recenzje", "/reviews"],

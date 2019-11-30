@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./Link";
+import logoImg from "../img/logo.png";
 
 const Nav = ({ state }) => {
   return (
@@ -8,7 +9,9 @@ const Nav = ({ state }) => {
       <StyledUl>
         {state.theme.menu.map(([name, link]) => (
           <StyledLi key={name} isSelected={state.router.link === link}>
-            <Link link={link}>{name}</Link>
+            <Link link={link}>
+              {name === "logo" ? <img src={logoImg} /> : name}
+            </Link>
           </StyledLi>
         ))}
       </StyledUl>
@@ -25,7 +28,7 @@ const StyledNav = styled.nav`
   z-index: 999;
   padding: 0px 20px;
   box-shadow: rgba(0, 0, 0, 0.208) -1px 1px 23px 4px;
-  background: none;
+  background: #fff;
 `;
 
 const StyledUl = styled.ul`

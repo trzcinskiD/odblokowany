@@ -1,9 +1,14 @@
 import React from "react";
-import { Global, css, connect, Head } from "frontity";
+import { Global, css, connect, Head, styled } from "frontity";
 import Nav from "./Nav";
+import Post from "./Post";
+import List from "./list";
+import Loading from "./Loading";
 import backgroundPattern from "../img/cream_dust.png";
 
 const Theme = ({ state }) => {
+  const data = state.source.get(state.router.link);
+  console.log(`Data object from theme`, data);
   return (
     <>
       <Head>
@@ -16,6 +21,11 @@ const Theme = ({ state }) => {
       </Head>
       <Global styles={globalStyles} />
       <Nav />
+      <Main>
+        {(data.isFetching && <Loading />) ||
+          (data.isArchive && <List />) ||
+          (data.isPostType && <Post />)}
+      </Main>
     </>
   );
 };
@@ -42,4 +52,12 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+`;
+
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-top: 60px;
+  width: 100%;
 `;
