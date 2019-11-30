@@ -15,11 +15,7 @@ const settings = {
         theme: {
           menu: [
             ["logo", "/"],
-            ["Decentralizacja", "/decentralization"],
-            ["Blockchain", "/blockchain"],
-            ["Recenzje", "/reviews"],
-            ["Inne", "/other"],
-            ["O mnie", "/about"]
+            ["O mnie", "/about/"]
           ]
         }
       }

@@ -2,15 +2,17 @@ import React from "react";
 import { Global, css, connect, Head, styled } from "frontity";
 import Nav from "./Nav";
 import Post from "./Post";
-import List from "./list";
+import List from "./List";
 import Loading from "./Loading";
+import Page404 from "./Page404";
+import Title from "./Title";
 import backgroundPattern from "../img/cream_dust.png";
 
 const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
-  console.log(`Data object from theme`, data);
   return (
     <>
+      <Title />
       <Head>
         <meta name="description" content={state.frontity.description} />
         <html lang="pl" />
@@ -24,7 +26,8 @@ const Theme = ({ state }) => {
       <Main>
         {(data.isFetching && <Loading />) ||
           (data.isArchive && <List />) ||
-          (data.isPostType && <Post />)}
+          (data.isPostType && <Post />) ||
+          (data.is404 && <Page404 />)}
       </Main>
     </>
   );

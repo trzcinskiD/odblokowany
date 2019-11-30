@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Link from "./Link";
 import logoImg from "../img/logo.png";
 
@@ -10,7 +10,17 @@ const Nav = ({ state }) => {
         {state.theme.menu.map(([name, link]) => (
           <StyledLi key={name} isSelected={state.router.link === link}>
             <Link link={link}>
-              {name === "logo" ? <img src={logoImg} /> : name}
+              {name === "logo" ? (
+                <img
+                  src={logoImg}
+                  css={css`
+                    position: relative;
+                    bottom: 4px;
+                  `}
+                />
+              ) : (
+                name
+              )}
             </Link>
           </StyledLi>
         ))}
@@ -33,7 +43,7 @@ const StyledNav = styled.nav`
 
 const StyledUl = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 100%;
   max-width: 980px;
@@ -44,11 +54,10 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.li`
   opacity: 1;
-  flex-grow: 1;
   height: 60px;
   text-align: center;
   font-weight: 500;
-  padding: 17px 0px;
+  padding: 17px 30px;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid
     ${({ isSelected }) => (isSelected ? "#000" : "transparent")};

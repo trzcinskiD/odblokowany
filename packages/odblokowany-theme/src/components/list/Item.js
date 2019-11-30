@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../Link";
-// import FeaturedMedia from "../featured-media";
+import FeaturedMedia from "../Featured-media";
 
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
@@ -9,24 +9,23 @@ const Item = ({ state, item }) => {
 
   return (
     <article>
-      <Link link={item.link}>
-        <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-      </Link>
-      <div>
-        {author && (
-          <StyledLink link={author.link}>
-            <Author>
-              By <b>{author.name}</b>
-            </Author>
-          </StyledLink>
-        )}
+      <Header>
+        <Link link={item.link}>
+          <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+        </Link>
         <Fecha>
-          on <b>{date.toDateString()}</b>
+          <b>
+            {date.toLocaleDateString("pl-PL", {
+              hour: "numeric",
+              minute: "numeric",
+              day: "numeric",
+              month: "2-digit",
+              year: "2-digit"
+            })}
+          </b>
         </Fecha>
-      </div>
-      {/* state.theme.featured.showOnList && (
-        <FeaturedMedia id={item.featured_media} />
-      ) */}
+      </Header>
+      <FeaturedMedia id={item.featured_media} />
       {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
@@ -36,12 +35,18 @@ const Item = ({ state, item }) => {
 
 export default connect(Item);
 
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const Title = styled.h1``;
-
-const Author = styled.span``;
-
-const StyledLink = styled(Link)``;
 
 const Fecha = styled.span``;
 
-const Excerpt = styled.div``;
+const Excerpt = styled.div`
+  & .read-more {
+    display: none !important;
+  }
+`;

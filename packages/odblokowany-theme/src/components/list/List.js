@@ -13,11 +13,6 @@ const List = ({ state }) => {
           {data.taxonomy}: {state.source[data.taxonomy][data.id].name}
         </Header>
       )}
-
-      {data.isAuthor && (
-        <Header>Author: {state.source.author[data.id].name}</Header>
-      )}
-
       {data.items.map(({ type, id }) => {
         const item = state.source[type][id];
         return <Item key={item.id} item={item} />;
