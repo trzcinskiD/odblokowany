@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import List from "./List";
 import FeaturedMedia from "./Featured-media";
+import readTime from "../util/readTime";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -20,19 +21,18 @@ const Post = ({ state, actions, libraries }) => {
       <Header>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {data.isPost && (
-          <div>
-            <Fecha>
-              <b>
-                {date.toLocaleDateString("pl-PL", {
-                  hour: "numeric",
-                  minute: "numeric",
-                  day: "numeric",
-                  month: "2-digit",
-                  year: "2-digit"
-                })}
-              </b>
-            </Fecha>
-          </div>
+          <Info>
+            <p>
+              {date.toLocaleDateString("pl-PL", {
+                hour: "numeric",
+                minute: "numeric",
+                day: "numeric",
+                month: "2-digit",
+                year: "2-digit"
+              })}
+            </p>
+            <p>Przeczytasz w {readTime(post.content.rendered)}</p>
+          </Info>
         )}
       </Header>
       <FeaturedMedia id={post.featured_media} />
@@ -57,8 +57,16 @@ const Header = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1``;
+const Info = styled.div`
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  & p {
+    margin: 0;
+  }
+`;
 
-const Fecha = styled.p``;
+const Title = styled.h1``;
 
 const Content = styled.div``;

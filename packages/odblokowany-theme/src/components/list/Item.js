@@ -2,9 +2,9 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../Link";
 import FeaturedMedia from "../Featured-media";
+import readTime from "../../util/readTime";
 
-const Item = ({ state, item }) => {
-  const author = state.source.author[item.author];
+const Item = ({ item }) => {
   const date = new Date(item.date);
 
   return (
@@ -13,8 +13,8 @@ const Item = ({ state, item }) => {
         <Link link={item.link}>
           <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
         </Link>
-        <Fecha>
-          <b>
+        <Info>
+          <p>
             {date.toLocaleDateString("pl-PL", {
               hour: "numeric",
               minute: "numeric",
@@ -22,8 +22,9 @@ const Item = ({ state, item }) => {
               month: "2-digit",
               year: "2-digit"
             })}
-          </b>
-        </Fecha>
+          </p>
+          <p>Przeczytasz w {readTime(item.content.rendered)}</p>
+        </Info>
       </Header>
       <FeaturedMedia id={item.featured_media} />
       {item.excerpt && (
@@ -41,12 +42,21 @@ const Header = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1``;
-
-const Fecha = styled.span``;
+const Info = styled.div`
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  & p {
+    margin: 0;
+    font-size: 82%;
+  }
+`;
 
 const Excerpt = styled.div`
   & .read-more {
     display: none !important;
   }
 `;
+
+const Title = styled.h1``;

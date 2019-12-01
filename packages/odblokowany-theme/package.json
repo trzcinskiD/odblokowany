@@ -8,6 +8,8 @@
     "@frontity/components": "^1.1.14",
     "@frontity/html2react": "^1.1.14",
     "frontity": "^1.4.2",
-    "react-spinners": "^0.6.1"
+    "react-icons": "^3.8.0",
+    "react-spinners": "^0.6.1",
+    "read-time-estimate": "0.0.2"
   }
 }
