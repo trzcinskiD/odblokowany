@@ -38,6 +38,10 @@ const Container = styled.div`
   flex-shrink: 0;
   & a {
     padding: 0.5em 1em;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+    }
   }
   .react-icons {
     vertical-align: middle;
