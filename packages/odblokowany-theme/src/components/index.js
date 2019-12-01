@@ -6,6 +6,7 @@ import List from "./List";
 import Loading from "./Loading";
 import Page404 from "./Page404";
 import Title from "./Title";
+import Footer from "./Footer";
 import backgroundPattern from "../img/cream_dust.png";
 
 const Theme = ({ state }) => {
@@ -29,6 +30,7 @@ const Theme = ({ state }) => {
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
       </Main>
+      <Footer />
     </>
   );
 };
@@ -38,6 +40,7 @@ export default connect(Theme);
 const globalStyles = css`
   html {
     box-sizing: border-box;
+    height: 100%;
   }
   *,
   *:before,
@@ -46,6 +49,8 @@ const globalStyles = css`
   }
   body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
     background-image: url(${backgroundPattern});
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -59,8 +64,7 @@ const globalStyles = css`
 
 const Main = styled.div`
   display: flex;
+  flex: 1 0 auto;
   justify-content: center;
-  position: absolute;
-  margin-top: 60px;
   width: 100%;
 `;

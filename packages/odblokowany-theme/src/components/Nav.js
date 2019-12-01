@@ -32,9 +32,7 @@ const Nav = ({ state }) => {
 export default connect(Nav);
 
 const StyledNav = styled.nav`
-  position: fixed;
   width: 100%;
-  height: 60px;
   z-index: 999;
   padding: 0px 20px;
   box-shadow: rgba(0, 0, 0, 0.208) -1px 1px 23px 4px;
