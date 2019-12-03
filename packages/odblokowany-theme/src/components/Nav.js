@@ -52,10 +52,10 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.li`
   opacity: 1;
-  height: 60px;
+  height: 50px;
   text-align: center;
   font-weight: 500;
-  padding: 17px 30px;
+  padding: 13px 30px;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid
     ${({ isSelected }) => (isSelected ? "#000" : "transparent")};

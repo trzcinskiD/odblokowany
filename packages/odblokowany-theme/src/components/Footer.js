@@ -45,7 +45,7 @@ const Container = styled.div`
   }
   .react-icons {
     vertical-align: middle;
-    height: 2em;
-    width: 2em;
+    height: 1.5em;
+    width: 1.5em;
   }
 `;

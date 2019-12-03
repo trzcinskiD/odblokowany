@@ -21,7 +21,6 @@ const settings = {
         theme: {
           menu: [
             ["logo", "/"],
-            ["Darmowe materiały", "/free_tools/"],
             ["O mnie", "/about/"]
           ]
         }

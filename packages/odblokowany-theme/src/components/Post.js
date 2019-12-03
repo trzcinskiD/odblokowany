@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import List from "./List";
 import FeaturedMedia from "./Featured-media";
+import Comments from "./Comments";
 import readTime from "../util/readTime";
+import formatDate from "../util/formatDate";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id];
   const date = new Date(post.date);
-
   const Html2React = libraries.html2react.Component;
 
   useEffect(() => {
@@ -22,15 +23,7 @@ const Post = ({ state, actions, libraries }) => {
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {data.isPost && (
           <Info>
-            <p>
-              {date.toLocaleDateString("pl-PL", {
-                hour: "numeric",
-                minute: "numeric",
-                day: "numeric",
-                month: "2-digit",
-                year: "2-digit"
-              })}
-            </p>
+            <p>{formatDate(date)}</p>
             <p>Przeczytasz w {readTime(post.content.rendered)}</p>
           </Info>
         )}
@@ -39,6 +32,7 @@ const Post = ({ state, actions, libraries }) => {
       <Content>
         <Html2React html={post.content.rendered} />
       </Content>
+      <Comments postId={post.id} />
     </Container>
   ) : null;
 };

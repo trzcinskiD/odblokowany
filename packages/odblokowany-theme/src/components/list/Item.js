@@ -3,6 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "../Link";
 import FeaturedMedia from "../Featured-media";
 import readTime from "../../util/readTime";
+import formatDate from "../../util/formatDate";
 
 const Item = ({ item }) => {
   const date = new Date(item.date);
@@ -14,15 +15,7 @@ const Item = ({ item }) => {
           <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
         </Link>
         <Info>
-          <p>
-            {date.toLocaleDateString("pl-PL", {
-              hour: "numeric",
-              minute: "numeric",
-              day: "numeric",
-              month: "2-digit",
-              year: "2-digit"
-            })}
-          </p>
+          <p>{formatDate(date)}</p>
           <p>Przeczytasz w {readTime(item.content.rendered)}</p>
         </Info>
       </Header>
