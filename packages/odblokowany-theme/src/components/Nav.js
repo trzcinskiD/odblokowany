@@ -8,8 +8,8 @@ const Nav = ({ state }) => {
     <StyledNav>
       <StyledUl>
         {state.theme.menu.map(([name, link]) => (
-          <StyledLi key={name} isSelected={state.router.link === link}>
-            <Link link={link}>
+          <Link link={link}>
+            <StyledLi key={name} isSelected={state.router.link === link}>
               {name === "logo" ? (
                 <img
                   src={logoImg}
@@ -21,8 +21,8 @@ const Nav = ({ state }) => {
               ) : (
                 name
               )}
-            </Link>
-          </StyledLi>
+            </StyledLi>
+          </Link>
         ))}
       </StyledUl>
     </StyledNav>
