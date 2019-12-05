@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { connect, styled, loadable } from "frontity";
+import throttle from "lodash.throttle";
 import List from "./List";
 import FeaturedMedia from "./Featured-media";
 import readTime from "../util/readTime";
@@ -23,9 +24,9 @@ const Post = ({ state, actions, libraries }) => {
     ) {
       setShowComments(true);
     }
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", throttleHandleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttleHandleScroll);
     };
   }, []);
 
@@ -34,9 +35,11 @@ const Post = ({ state, actions, libraries }) => {
       window.pageYOffset > contentRef.current.getBoundingClientRect().bottom
     ) {
       setShowComments(true);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttleHandleScroll);
     }
   };
+
+  const throttleHandleScroll = throttle(handleScroll, 200);
 
   return data.isReady ? (
     <Container>

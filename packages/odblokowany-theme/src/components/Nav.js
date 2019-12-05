@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { connect, styled, css } from "frontity";
+import throttle from "lodash.throttle";
 import Link from "./Link";
 import logoImg from "../img/logo.png";
 
 const Nav = ({ state }) => {
+  const navRef = useRef(null);
+  const [stickNav, setStickNav] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", throttleHandleScroll);
+    return () => {
+      window.removeEventListener("scroll", throttleHandleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (window.pageYOffset >= navRef.current.getBoundingClientRect().bottom) {
+      setStickNav(true);
+    } else {
+      setStickNav(false);
+    }
+  };
+
+  const throttleHandleScroll = throttle(handleScroll, 100);
+
   return (
-    <StyledNav>
+    <StyledNav ref={navRef} stickNav={stickNav}>
       <StyledUl>
         {state.theme.menu.map(([name, link]) => (
-          <Link link={link}>
-            <StyledLi key={name} isSelected={state.router.link === link}>
+          <Link key={name} link={link}>
+            <StyledLi isSelected={state.router.link === link}>
               {name === "logo" ? (
                 <img
                   src={logoImg}
@@ -33,10 +54,13 @@ export default connect(Nav);
 
 const StyledNav = styled.nav`
   width: 100%;
+  top: 0;
   z-index: 999;
   padding: 0px 20px;
   box-shadow: rgba(0, 0, 0, 0.208) -1px 1px 23px 4px;
   background: #fff;
+  ${({ stickNav }) =>
+    stickNav ? "position: fixed; transition: all 1s ease-in;" : null}
 `;
 
 const StyledUl = styled.ul`
