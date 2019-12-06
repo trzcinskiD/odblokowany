@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { connect, styled, loadable } from "frontity";
+import { connect, styled } from "frontity";
 import throttle from "lodash.throttle";
 import List from "./List";
 import FeaturedMedia from "./Featured-media";
 import readTime from "../util/readTime";
 import formatDate from "../util/formatDate";
-
-const Comments = loadable(() => import("./Comments"));
+import Comments from "./Comments";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -45,14 +44,12 @@ const Post = ({ state, actions, libraries }) => {
     <Container>
       <Header>
         <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-        <Info>
-          {data.isPost && (
-            <>
-              <p>{formatDate(date)}</p>
-              <p>Przeczytasz w {readTime(post.content.rendered)}</p>
-            </>
-          )}
-        </Info>
+        {data.isPost && (
+          <>
+            <h5>{formatDate(date)}</h5>
+            <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
+          </>
+        )}
       </Header>
       <FeaturedMedia id={post.featured_media} />
       <div ref={contentRef}>
@@ -66,23 +63,14 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
   margin: 0;
-  padding: 24px;
 `;
 
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Info = styled.div`
-  font-weight: bold;
-  display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  & p {
+  & h5 {
+    font-size: 82%;
     margin: 0;
   }
 `;
