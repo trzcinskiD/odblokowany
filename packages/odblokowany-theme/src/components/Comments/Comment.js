@@ -3,11 +3,21 @@ import { styled } from "frontity";
 import List from "./List";
 import formatDate from "../../util/formatDate";
 
-const Comment = ({ author, date, content, post, id, nestLvl }) => {
+const Comment = ({
+  author,
+  date,
+  content,
+  post,
+  id,
+  nestLvl,
+  avatar,
+  setReplyTo
+}) => {
   const commentNestLvl = nestLvl + 1;
   return (
     <>
       <Container commentNestLvl={commentNestLvl}>
+        <img alt="avatar" src={avatar[24]} />
         <Author>
           <b>{author}</b>
         </Author>
@@ -19,8 +29,14 @@ const Comment = ({ author, date, content, post, id, nestLvl }) => {
             __html: content
           }}
         />
+        <button onClick={() => setReplyTo(id)}>Odpowiedz</button>
       </Container>
-      <List parentId={id} postId={post} nestLvl={commentNestLvl} />
+      <List
+        parentId={id}
+        postId={post}
+        nestLvl={commentNestLvl}
+        setReplyTo={setReplyTo}
+      />
     </>
   );
 };

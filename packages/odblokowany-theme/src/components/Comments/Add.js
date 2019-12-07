@@ -1,8 +1,7 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import { connect } from "frontity";
 
 class Add extends Component {
-  formRef = createRef();
   state = {
     comment: "",
     author: "",
@@ -25,14 +24,15 @@ class Add extends Component {
       formIsSubmitting: true
     });
 
-    const { libraries, postId } = this.props;
+    const { libraries, postId, replyTo } = this.props;
     const { comment, author, email } = this.state;
 
     const data = JSON.stringify({
       post: postId,
       author_name: author,
       author_email: email,
-      content: comment
+      content: comment,
+      parent: replyTo
     });
     fetch(`${libraries.source.api.api}/wp/v2/comments`, {
       method: "post",
@@ -71,11 +71,17 @@ class Add extends Component {
       formErrorMessage
     } = this.state;
 
+    const { replyTo, formRef, setReplyTo } = this.props;
+
     const submitButtonText = formIsSubmitting ? (
       <input type="submit" value="Dodaję komentarz..." disabled />
     ) : (
       <input type="submit" value="Dodaj komentarz" />
     );
+
+    const cancelReplyButton = replyTo ? (
+      <button onClick={() => setReplyTo(0)}>Anuluj</button>
+    ) : null;
 
     const successMessageMarkup = formSubmittedSuccessfully ? (
       <p>
@@ -90,8 +96,12 @@ class Add extends Component {
 
     return (
       <div>
-        <h4>Dodaj komentarz</h4>
-        <form ref={this.formRef} onSubmit={this.onSubmit}>
+        {replyTo ? (
+          <h4>Odpowiedz na komentarz {replyTo} </h4>
+        ) : (
+          <h4>Dodaj komentarz</h4>
+        )}
+        <form ref={formRef} onSubmit={this.onSubmit}>
           <div>
             <label htmlFor="author">Nick</label>
             <input
@@ -130,6 +140,7 @@ class Add extends Component {
               onChange={this.onChange}
             />
           </div>
+          {cancelReplyButton}
           {submitButtonText}
         </form>
         {successMessageMarkup}

@@ -3,7 +3,7 @@ import { connect } from "frontity";
 import Loading from "../Loading";
 import Comment from "./Comment";
 
-const List = ({ libraries, parentId, postId, nestLvl }) => {
+const List = ({ libraries, parentId, postId, nestLvl, setReplyTo }) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,11 +36,13 @@ const List = ({ libraries, parentId, postId, nestLvl }) => {
                   <Comment
                     key={item.id}
                     author={item.author_name}
-                    date={date}
                     content={item.content.rendered}
                     post={item.post}
                     id={item.id}
+                    avatar={item.author_avatar_urls}
+                    date={date}
                     nestLvl={nestLvl}
+                    setReplyTo={setReplyTo}
                   />
                 );
               })}
