@@ -64,6 +64,10 @@ export default connect(Post);
 
 const Container = styled.div`
   margin: 0;
+  & p {
+    margin-bottom: 34px;
+    text-align: justify;
+  }
 `;
 
 const Header = styled.div`

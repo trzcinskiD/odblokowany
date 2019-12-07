@@ -12,12 +12,10 @@ const Item = ({ item }) => {
     <article>
       <Header>
         <Link link={item.link}>
-          <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+          <h1 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
         </Link>
-        <Info>
-          <p>{formatDate(date)}</p>
-          <p>Przeczytasz w {readTime(item.content.rendered)}</p>
-        </Info>
+        <h5>{formatDate(date)}</h5>
+        <h5>Przeczytasz w {readTime(item.content.rendered)}</h5>
       </Header>
       <FeaturedMedia id={item.featured_media} />
       {item.excerpt && (
@@ -31,18 +29,10 @@ export default connect(Item);
 
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Info = styled.div`
-  font-weight: bold;
-  display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  & p {
-    margin: 0;
+  & h5 {
     font-size: 82%;
+    margin: 0;
   }
 `;
 
@@ -51,5 +41,3 @@ const Excerpt = styled.div`
     display: none !important;
   }
 `;
-
-const Title = styled.h1``;

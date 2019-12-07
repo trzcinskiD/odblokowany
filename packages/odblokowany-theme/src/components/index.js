@@ -101,6 +101,8 @@ const Main = styled.div`
   margin: auto;
   line-height: 34px;
   font-size: 20px;
-  text-align: justify;
   padding: 21px;
+  & {
+    text-align: justify;
+  }
 `;

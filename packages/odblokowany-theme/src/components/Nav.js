@@ -59,8 +59,7 @@ const StyledNav = styled.nav`
   padding: 0px 20px;
   box-shadow: rgba(0, 0, 0, 0.208) -1px 1px 23px 4px;
   background: #fff;
-  ${({ stickNav }) =>
-    stickNav ? "position: fixed; transition: all 1s ease-in;" : null}
+  ${({ stickNav }) => (stickNav ? "position: fixed;" : null)}
 `;
 
 const StyledUl = styled.ul`
