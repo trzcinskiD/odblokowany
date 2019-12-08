@@ -5,13 +5,12 @@ import List from "./List";
 
 const Box = ({ postId }) => {
   const [replyTo, setReplyTo] = useState(0);
-  const addFormRef = useRef(null);
+  const FormRef = useRef(null);
 
   const setFormToReply = id => {
     setReplyTo(id);
-    console.log(addFormRef.current);
     if (id) {
-      addFormRef.current.scrollIntoView({
+      FormRef.current.scrollIntoView({
         block: "start",
         behavior: "smooth"
       });
@@ -28,7 +27,7 @@ const Box = ({ postId }) => {
         setReplyTo={setFormToReply}
       />
       <Add
-        formRef={addFormRef}
+        formRef={FormRef}
         postId={postId}
         replyTo={replyTo}
         setReplyTo={setFormToReply}

@@ -30,16 +30,15 @@ const List = ({ libraries, parentId, postId, nestLvl, setReplyTo }) => {
           {comments.length > 0 && (
             <>
               {comments.map(item => {
-                console.log(item);
                 const date = new Date(item.date);
                 return (
                   <Comment
                     key={item.id}
+                    id={item.id}
+                    avatar={item.author_avatar_urls}
                     author={item.author_name}
                     content={item.content.rendered}
                     post={item.post}
-                    id={item.id}
-                    avatar={item.author_avatar_urls}
                     date={date}
                     nestLvl={nestLvl}
                     setReplyTo={setReplyTo}

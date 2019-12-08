@@ -8,24 +8,22 @@ class Add extends Component {
     email: "",
     formIsSubmitting: false,
     formSubmittedSuccessfully: false,
-    formSubmittedFailed: false,
-    formErrorMessage: null
+    formSubmittedFailed: false
   };
 
-  onChange = ({ target }) => {
+  onChange = async ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
   };
 
-  onSubmit = event => {
-    event.preventDefault();
+  onSubmit = async event => {
+    const { libraries, postId, replyTo } = this.props;
+    const { comment, author, email } = this.state;
 
+    event.preventDefault();
     this.setState({
       formIsSubmitting: true
     });
-
-    const { libraries, postId, replyTo } = this.props;
-    const { comment, author, email } = this.state;
 
     const data = JSON.stringify({
       post: postId,
@@ -34,30 +32,31 @@ class Add extends Component {
       content: comment,
       parent: replyTo
     });
-    fetch(`${libraries.source.api.api}/wp/v2/comments`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: data
-    })
-      .then(response => {
-        if (response.ok === true) {
-          this.setState({
-            formIsSubmitting: false,
-            formSubmittedSuccessfully: true,
-            comment: ""
-          });
+
+    try {
+      const response = await fetch(
+        `${libraries.source.api.api}/wp/v2/comments`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: data
         }
-      })
-      .then(object => {
+      );
+      if (response.ok === true) {
         this.setState({
           formIsSubmitting: false,
-          formSubmittedFailed: true,
-          formErrorMessage: object.message
+          formSubmittedSuccessfully: true,
+          comment: ""
         });
-      })
-      .catch(err => console.error("Error:", err));
+      } else {
+        this.setState({
+          formIsSubmitting: false,
+          formSubmittedFailed: true
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -67,8 +66,7 @@ class Add extends Component {
       email,
       formIsSubmitting,
       formSubmittedSuccessfully,
-      formSubmittedFailed,
-      formErrorMessage
+      formSubmittedFailed
     } = this.state;
 
     const { replyTo, formRef, setReplyTo } = this.props;
@@ -84,22 +82,20 @@ class Add extends Component {
     ) : null;
 
     const successMessageMarkup = formSubmittedSuccessfully ? (
-      <p>
-        Dzięki za dodanie komentarza! Pojawi się pod postem po zatwierdzeniu.
-      </p>
+      <p>Dzięki! Komentarz pojawi się na stronie po zatwierdzeniu.</p>
     ) : null;
 
     const errorMessageMarkup =
       formSubmittedFailed && formSubmittedSuccessfully === false ? (
-        <p>{formErrorMessage}</p>
+        <p>Błąd podczas dodawania komentarza. Spróbuj później.</p>
       ) : null;
 
     return (
       <div>
         {replyTo ? (
-          <h4>Odpowiedz na komentarz {replyTo} </h4>
+          <h4>Odpowiedz na komentarz</h4>
         ) : (
-          <h4>Dodaj komentarz</h4>
+          <h4>Dodaj nowy komentarz</h4>
         )}
         <form ref={formRef} onSubmit={this.onSubmit}>
           <div>

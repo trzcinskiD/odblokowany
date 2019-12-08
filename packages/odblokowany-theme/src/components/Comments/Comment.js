@@ -4,16 +4,16 @@ import List from "./List";
 import formatDate from "../../util/formatDate";
 
 const Comment = ({
+  id,
+  post,
+  avatar,
   author,
   date,
   content,
-  post,
-  id,
   nestLvl,
-  avatar,
   setReplyTo
 }) => {
-  const commentNestLvl = nestLvl + 1;
+  const commentNestLvl = nestLvl === 5 ? nestLvl : nestLvl + 1;
   return (
     <>
       <Container commentNestLvl={commentNestLvl}>
@@ -22,7 +22,8 @@ const Comment = ({
           <b>{author}</b>
         </Author>
         <Fecha>
-          , dodano <b>{formatDate(date)}</b>
+          <br />
+          <b>{formatDate(date)}</b>
         </Fecha>
         <Content
           dangerouslySetInnerHTML={{
@@ -50,7 +51,7 @@ const Container = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.09);
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  margin: 10px 0 10px ${({ commentNestLvl }) => 10 * commentNestLvl}px;
+  margin: 10px 0 10px ${({ commentNestLvl }) => 15 * commentNestLvl}px;
   padding: 10px;
 `;
 
