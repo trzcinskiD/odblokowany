@@ -54,7 +54,6 @@ const globalStyles = css`
     background-image: url(${backgroundPattern});
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
       Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
   }
   h1,
   h2,
@@ -66,26 +65,26 @@ const globalStyles = css`
     font-family: "Open Sans", sans-serif;
   }
   h1 {
-    font-size: 41px;
-    line-height: 64px;
-    margin-bottom: 34px;
+    font-size: 37px;
+    line-height: 58px;
+    margin-bottom: 30px;
   }
   h2 {
-    font-size: 32px;
-    line-height: 51px;
-    margin-top: 55px;
-    margin-bottom: 21px;
+    font-size: 29px;
+    line-height: 46px;
+    margin-top: 49px;
+    margin-bottom: 19px;
   }
   h3 {
-    font-size: 25px;
-    line-height: 41px;
-    margin-top: 34px;
-    margin-bottom: 13px;
+    font-size: 23px;
+    line-height: 38px;
+    margin-top: 30px;
+    margin-bottom: 12px;
   }
   h4 {
-    font-size: 20px;
-    line-height: 34px;
-    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 7px;
   }
   a,
   a:visited {
@@ -97,11 +96,11 @@ const globalStyles = css`
 const Main = styled.div`
   display: flex;
   flex: 1 0 auto;
-  max-width: 696px;
+  max-width: 628px;
   margin: auto;
-  line-height: 34px;
-  font-size: 20px;
-  padding: 21px;
+  line-height: 30px;
+  font-size: 18px;
+  padding: 19px;
   & {
     text-align: justify;
   }
