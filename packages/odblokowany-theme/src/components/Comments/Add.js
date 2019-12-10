@@ -92,11 +92,7 @@ class Add extends Component {
 
     return (
       <div>
-        {replyTo ? (
-          <h4>Odpowiedz na komentarz</h4>
-        ) : (
-          <h4>Dodaj nowy komentarz</h4>
-        )}
+        {replyTo ? <h4>Odpowiedz na komentarz</h4> : <h4>Dodaj komentarz</h4>}
         <form ref={formRef} onSubmit={this.onSubmit}>
           <div>
             <label htmlFor="author">Nick</label>

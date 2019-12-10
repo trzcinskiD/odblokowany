@@ -3,7 +3,15 @@ import { connect } from "frontity";
 import Loading from "../Loading";
 import Comment from "./Comment";
 
-const List = ({ libraries, parentId, postId, nestLvl, setReplyTo }) => {
+const List = ({
+  libraries,
+  parentId,
+  postId,
+  nestLvl,
+  setReplyTo,
+  replyTo,
+  formRef
+}) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -41,7 +49,9 @@ const List = ({ libraries, parentId, postId, nestLvl, setReplyTo }) => {
                     post={item.post}
                     date={date}
                     nestLvl={nestLvl}
+                    replyTo={replyTo}
                     setReplyTo={setReplyTo}
+                    formRef={formRef}
                   />
                 );
               })}

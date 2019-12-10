@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "frontity";
 import List from "./List";
+import Add from "./Add";
 import formatDate from "../../util/formatDate";
 
 const Comment = ({
@@ -11,7 +12,9 @@ const Comment = ({
   date,
   content,
   nestLvl,
-  setReplyTo
+  replyTo,
+  setReplyTo,
+  formRef
 }) => {
   const commentNestLvl = nestLvl === 5 ? nestLvl : nestLvl + 1;
   return (
@@ -32,10 +35,19 @@ const Comment = ({
         />
         <button onClick={() => setReplyTo(id)}>Odpowiedz</button>
       </Container>
+      {replyTo === id ? (
+        <Add
+          formRef={formRef}
+          postId={post}
+          replyTo={replyTo}
+          setReplyTo={setReplyTo}
+        />
+      ) : null}
       <List
         parentId={id}
         postId={post}
         nestLvl={commentNestLvl}
+        replyTo={replyTo}
         setReplyTo={setReplyTo}
       />
     </>
@@ -51,7 +63,8 @@ const Container = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.09);
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  margin: 10px 0 10px ${({ commentNestLvl }) => 15 * commentNestLvl}px;
+  margin: 10px 0 10px
+    ${({ commentNestLvl }) => (commentNestLvl === 1 ? 0 : 5 * commentNestLvl)}px;
   padding: 10px;
 `;
 
