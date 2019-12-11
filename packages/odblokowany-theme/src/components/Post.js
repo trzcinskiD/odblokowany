@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 import { connect, styled } from "frontity";
 import throttle from "lodash.throttle";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";

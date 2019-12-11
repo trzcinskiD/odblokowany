@@ -16,7 +16,10 @@ const Nav = ({ state }) => {
   }, []);
 
   const handleScroll = () => {
-    if (window.pageYOffset >= navRef.current.getBoundingClientRect().bottom) {
+    if (
+      window.pageYOffset >=
+      navRef.current.getBoundingClientRect().height * 1.5
+    ) {
       setStickNav(true);
     } else {
       setStickNav(false);
