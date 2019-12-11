@@ -1,5 +1,7 @@
 import React from "react";
 import { styled } from "frontity";
+import { IconContext } from "react-icons";
+import { FaCalendarAlt } from "react-icons/fa";
 import List from "./List";
 import Add from "./Add";
 import formatDate from "../../util/formatDate";
@@ -20,20 +22,24 @@ const Comment = ({
   return (
     <>
       <Container commentNestLvl={commentNestLvl}>
-        <img alt="avatar" src={avatar[24]} />
-        <Author>
-          <b>{author}</b>
-        </Author>
-        <Fecha>
-          <br />
-          <b>{formatDate(date)}</b>
-        </Fecha>
-        <Content
-          dangerouslySetInnerHTML={{
-            __html: content
-          }}
-        />
-        <button onClick={() => setReplyTo(id)}>Odpowiedz</button>
+        <div>
+          <Avatar alt="avatar" src={avatar[96]} />
+        </div>
+        <div>
+          <Author>{author}</Author>
+          <PostInfo>
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <FaCalendarAlt />
+              <h5>{formatDate(date)}</h5>
+            </IconContext.Provider>
+          </PostInfo>
+          <Content
+            dangerouslySetInnerHTML={{
+              __html: content
+            }}
+          />
+          <Reply onClick={() => setReplyTo(id)}>Odpowiedz</Reply>
+        </div>
       </Container>
       {replyTo === id ? (
         <Add
@@ -57,25 +63,27 @@ const Comment = ({
 export default Comment;
 
 const Container = styled.div`
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.09);
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  margin: 10px 0 10px
-    ${({ commentNestLvl }) => (commentNestLvl === 1 ? 0 : 5 * commentNestLvl)}px;
-  padding: 10px;
+  display: flex;
+  margin: 1rem 0 1rem
+    ${({ commentNestLvl }) =>
+      commentNestLvl === 1 ? 0 : 1.625 * commentNestLvl}rem;
 `;
 
-const Author = styled.p`
-  font-size: 0.8em;
-  display: inline;
+const Author = styled.h4`
+  margin: 0;
 `;
 
-const Fecha = styled.p`
-  font-size: 0.8em;
-  display: inline;
+const PostInfo = styled.div`
+  display: flex;
+  align-items: center;
+  & h5 {
+    margin: 0 0 0 0.5rem;
+    75%;
+  }
+  .react-icons {
+    height: 0.75em;
+    width: 0.75em;
+  }
 `;
 
 const Content = styled.div`
@@ -83,4 +91,16 @@ const Content = styled.div`
   p {
     margin: 7px 0;
   }
+`;
+
+const Avatar = styled.img`
+  border-radius: 100%;
+  height: calc(2.25 * 1rem);
+  width: calc(2.25 * 1rem);
+  margin: 1rem 1rem 0 0;
+`;
+
+const Reply = styled.button`
+  box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+  transition: box-shadow 0.3s ease;
 `;

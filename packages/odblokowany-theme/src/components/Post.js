@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { connect, styled } from "frontity";
 import throttle from "lodash.throttle";
+import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
 import List from "./List";
 import FeaturedMedia from "./Featured-media";
+import Comments from "./Comments";
 import readTime from "../util/readTime";
 import formatDate from "../util/formatDate";
-import Comments from "./Comments";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -46,8 +47,14 @@ const Post = ({ state, actions, libraries }) => {
         <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {data.isPost && (
           <>
-            <h5>{formatDate(date)}</h5>
-            <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
+            <PostInfo>
+              <FaCalendarAlt />
+              <h5>{formatDate(date)}</h5>
+            </PostInfo>
+            <PostInfo>
+              <FaStopwatch />
+              <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
+            </PostInfo>
           </>
         )}
       </Header>
@@ -76,5 +83,13 @@ const Header = styled.div`
   & h5 {
     font-size: 82%;
     margin: 0;
+  }
+`;
+
+const PostInfo = styled.div`
+  display: flex;
+  align-items: center;
+  & h5 {
+    margin-left: 0.5rem;
   }
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect } from "frontity";
 import Item from "./Item";
 import Pagination from "./Pagination";
 
@@ -7,27 +7,19 @@ const List = ({ state }) => {
   const data = state.source.get(state.router.link);
 
   return (
-    <Container>
+    <section>
       {data.isTaxonomy && (
-        <Header>
+        <h3>
           {data.taxonomy}: {state.source[data.taxonomy][data.id].name}
-        </Header>
+        </h3>
       )}
       {data.items.map(({ type, id }) => {
         const item = state.source[type][id];
         return <Item key={item.id} item={item} />;
       })}
       <Pagination />
-    </Container>
+    </section>
   );
 };
 
 export default connect(List);
-
-const Container = styled.section`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
-`;
-
-const Header = styled.h3``;
