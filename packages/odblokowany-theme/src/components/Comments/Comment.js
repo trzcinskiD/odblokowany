@@ -38,7 +38,7 @@ const Comment = ({
               __html: content
             }}
           />
-          <Reply onClick={() => setReplyTo(id)}>Odpowiedz</Reply>
+          <button onClick={() => setReplyTo(id)}>Odpowiedz</button>
         </div>
       </Container>
       {replyTo === id ? (
@@ -78,7 +78,7 @@ const PostInfo = styled.div`
   align-items: center;
   & h5 {
     margin: 0 0 0 0.5rem;
-    75%;
+    font-size: 75%;
   }
   .react-icons {
     height: 0.75em;
@@ -98,9 +98,4 @@ const Avatar = styled.img`
   height: calc(2.25 * 1rem);
   width: calc(2.25 * 1rem);
   margin: 1rem 1rem 0 0;
-`;
-
-const Reply = styled.button`
-  box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
-  transition: box-shadow 0.3s ease;
 `;

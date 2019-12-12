@@ -61,7 +61,10 @@ const globalStyles = css`
   h4,
   h5,
   h6,
-  li {
+  li,
+  button,
+  label,
+  input {
     font-family: "Open Sans", sans-serif;
   }
   h1 {
@@ -90,6 +93,20 @@ const globalStyles = css`
   a:visited {
     color: inherit;
     text-decoration: none;
+  }
+  button {
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 0;
+    background: white;
+    padding: 0.6rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 0.65em;
+    font-weight: 600;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+    }
   }
 `;
 

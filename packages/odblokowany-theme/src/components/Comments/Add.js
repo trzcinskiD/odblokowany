@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "frontity";
+import { connect, styled } from "frontity";
 
 class Add extends Component {
   state = {
@@ -71,14 +71,16 @@ class Add extends Component {
 
     const { replyTo, formRef, setReplyTo } = this.props;
 
-    const submitButtonText = formIsSubmitting ? (
-      <input type="submit" value="Dodaję komentarz..." disabled />
-    ) : (
-      <input type="submit" value="Dodaj komentarz" />
+    const submitButtonText = (
+      <button type="button" onClick={this.onSubmit}>
+        {formIsSubmitting ? "Dodaję komentarz..." : "Dodaj komentarz"}
+      </button>
     );
 
     const cancelReplyButton = replyTo ? (
-      <button onClick={() => setReplyTo(0)}>Anuluj</button>
+      <button type="button" onClick={() => setReplyTo(0)}>
+        Anuluj
+      </button>
     ) : null;
 
     const successMessageMarkup = formSubmittedSuccessfully ? (
@@ -93,36 +95,32 @@ class Add extends Component {
     return (
       <div>
         {replyTo ? <h4>Odpowiedz na komentarz</h4> : <h4>Dodaj komentarz</h4>}
-        <form ref={formRef} onSubmit={this.onSubmit}>
+        <StyledForm ref={formRef}>
           <div>
-            <label htmlFor="author">Nick</label>
             <input
               id="author"
               name="author"
               type="text"
+              placeholder="Pseudonim"
               required
               disabled={formIsSubmitting}
               value={author}
               onChange={this.onChange}
             />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
               name="email"
+              placeholder="Email"
               required
               disabled={formIsSubmitting}
               value={email}
               onChange={this.onChange}
             />
-          </div>
-          <div>
-            <label htmlFor="comment">Komentarz</label>
             <textarea
               id="comment"
               name="comment"
+              placeholder="Wpisz swój komentarz"
               cols="45"
               rows="8"
               maxLength="65525"
@@ -132,9 +130,11 @@ class Add extends Component {
               onChange={this.onChange}
             />
           </div>
-          {cancelReplyButton}
-          {submitButtonText}
-        </form>
+          <Buttons>
+            {cancelReplyButton}
+            {submitButtonText}
+          </Buttons>
+        </StyledForm>
         {successMessageMarkup}
         {errorMessageMarkup}
       </div>
@@ -143,3 +143,33 @@ class Add extends Component {
 }
 
 export default connect(Add);
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input,
+  textarea {
+    font-family: inherit;
+    font-size: 0.9em;
+    line-height: inherit;
+    width: 100%;
+    background: white;
+    outline: none;
+    border: none;
+    transition: box-shadow 0.3s ease;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    &:focus {
+      box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+    }
+  }
+`;
+
+const Buttons = styled.div`
+  align-self: flex-end;
+  justify-content: space-between;
+  & button {
+    margin: 0.5rem;
+  }
+`;
