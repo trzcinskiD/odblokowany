@@ -30,10 +30,10 @@ const Nav = ({ state }) => {
 
   return (
     <StyledNav ref={navRef} stickNav={stickNav}>
-      <StyledUl>
+      <NavButtonContainer>
         {state.theme.menu.map(([name, link]) => (
           <Link key={name} link={link}>
-            <StyledLi isSelected={state.router.link === link}>
+            <NavButton isSelected={state.router.link === link}>
               {name === "logo" ? (
                 <img
                   src={logoImg}
@@ -45,10 +45,10 @@ const Nav = ({ state }) => {
               ) : (
                 name
               )}
-            </StyledLi>
+            </NavButton>
           </Link>
         ))}
-      </StyledUl>
+      </NavButtonContainer>
     </StyledNav>
   );
 };
@@ -65,7 +65,7 @@ const StyledNav = styled.nav`
   ${({ stickNav }) => (stickNav ? "position: fixed;" : null)}
 `;
 
-const StyledUl = styled.ul`
+const NavButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +76,7 @@ const StyledUl = styled.ul`
   list-style: none;
 `;
 
-const StyledLi = styled.li`
+const NavButton = styled.div`
   opacity: 1;
   height: 50px;
   text-align: center;
@@ -84,8 +84,8 @@ const StyledLi = styled.li`
   padding: 13px 30px;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid
-    ${({ isSelected }) => (isSelected ? "#000" : "transparent")};
+    ${({ isSelected }) => (isSelected ? "var(--dark)" : "transparent")};
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+    box-shadow: var(--secondary) 0px 0px 10px 0px;
   }
 `;

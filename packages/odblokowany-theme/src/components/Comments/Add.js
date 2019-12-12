@@ -161,7 +161,7 @@ const StyledForm = styled.form`
     margin-top: 1rem;
     padding: 0.75rem 1rem;
     &:focus {
-      box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+      box-shadow: var(--secondary) 0px 0px 10px 0px;
     }
   }
 `;

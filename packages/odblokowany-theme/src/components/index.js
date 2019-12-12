@@ -38,6 +38,13 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  :root {
+    --primary: #f0f0f1;
+    --darkerPrimary: #e9e8e9;
+    --secondary: #c8b272;
+    --third: #817c78;
+    --dark: #37363a;
+  }
   html {
     box-sizing: border-box;
     height: 100%;
@@ -48,6 +55,7 @@ const globalStyles = css`
     box-sizing: inherit;
   }
   body {
+    color: var(--dark);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -61,7 +69,7 @@ const globalStyles = css`
   h4,
   h5,
   h6,
-  li,
+  nav,
   button,
   label,
   input {
@@ -89,6 +97,9 @@ const globalStyles = css`
     line-height: 30px;
     margin-bottom: 7px;
   }
+  h5 {
+    color: var(--third);
+  }
   a,
   a:visited {
     color: inherit;
@@ -105,7 +116,7 @@ const globalStyles = css`
     font-size: 0.65em;
     font-weight: 600;
     &:hover {
-      box-shadow: rgba(0, 0, 0, 0.416) 0px 0px 10px 0px;
+      box-shadow: var(--secondary) 0px 0px 10px 0px;
     }
   }
 `;
