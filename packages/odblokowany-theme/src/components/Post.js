@@ -49,7 +49,7 @@ const Post = ({ state, actions, libraries }) => {
           <>
             <PostInfo>
               <FaCalendarAlt />
-              <h5>{formatDate(date)}</h5>
+              <h5>{formatDate(date, "long")}</h5>
             </PostInfo>
             <PostInfo>
               <FaStopwatch />
