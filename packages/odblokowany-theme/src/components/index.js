@@ -118,6 +118,10 @@ const globalStyles = css`
     &:hover {
       box-shadow: var(--secondary) 0px 0px 10px 0px;
     }
+    &:disabled {
+      box-shadow: none;
+      cursor: default;
+    }
   }
 `;
 

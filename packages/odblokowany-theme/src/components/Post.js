@@ -20,7 +20,7 @@ const Post = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
     List.preload();
     if (
-      contentRef.current.getBoundingClientRect().bottom < window.innerHeight
+      contentRef.current.getBoundingClientRect().height < window.innerHeight
     ) {
       setShowComments(true);
     }
@@ -32,7 +32,8 @@ const Post = ({ state, actions, libraries }) => {
 
   const handleScroll = () => {
     if (
-      window.pageYOffset > contentRef.current.getBoundingClientRect().bottom
+      window.pageYOffset >
+      contentRef.current.getBoundingClientRect().height / 2
     ) {
       setShowComments(true);
       window.removeEventListener("scroll", throttleHandleScroll);
@@ -59,9 +60,9 @@ const Post = ({ state, actions, libraries }) => {
         )}
       </Header>
       <FeaturedMedia id={post.featured_media} />
-      <div ref={contentRef}>
+      <Content ref={contentRef}>
         <Html2React html={post.content.rendered} />
-      </div>
+      </Content>
       {data.isPost && showComments && <Comments postId={post.id} />}
     </Container>
   ) : null;
@@ -71,6 +72,9 @@ export default connect(Post);
 
 const Container = styled.div`
   margin: 0;
+`;
+
+const Content = styled.div`
   & p {
     margin-bottom: 34px;
     text-align: justify;
