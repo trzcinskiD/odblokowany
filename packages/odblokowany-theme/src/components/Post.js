@@ -49,7 +49,7 @@ const Post = ({ state, actions, libraries }) => {
           <>
             <PostInfo>
               <FaCalendarAlt />
-              <h5>{formatDate(date, "long")}</h5>
+              <DateInfo>{formatDate(date, "long")}</DateInfo>
             </PostInfo>
             <PostInfo>
               <FaStopwatch />
@@ -92,4 +92,8 @@ const PostInfo = styled.div`
   & h5 {
     margin-left: 0.5rem;
   }
+`;
+
+const DateInfo = styled.h5`
+  text-transform: capitalize;
 `;
