@@ -59,7 +59,7 @@ class Add extends Component {
   };
 
   onSubmit = async event => {
-    const { libraries, postId, replyTo } = this.props;
+    const { libraries, postId, replyTo, setReplyTo } = this.props;
     const { comment, author, email } = this.state;
 
     event.preventDefault();
@@ -88,8 +88,11 @@ class Add extends Component {
         this.setState({
           formIsSubmitting: false,
           formSubmittedSuccessfully: true,
-          comment: ""
+          comment: "",
+          author: "",
+          email: ""
         });
+        setReplyTo(0);
       } else {
         this.setState({
           formIsSubmitting: false,
