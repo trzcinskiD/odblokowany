@@ -3,11 +3,11 @@ import { connect, styled } from "frontity";
 import throttle from "lodash.throttle";
 import { IconContext } from "react-icons";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
-import List from "./List";
-import FeaturedMedia from "./Featured-media";
-import Comments from "./Comments";
-import readTime from "../util/readTime";
-import formatDate from "../util/formatDate";
+import List from "../List";
+import FeaturedMedia from "../Featured-media";
+import Comments from "../Comments";
+import readTime from "../../util/readTime";
+import formatDate from "../../util/formatDate";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
