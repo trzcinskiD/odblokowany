@@ -3,7 +3,7 @@ const settings = {
   state: {
     frontity: {
       url: "https://odblokowany.pl",
-      devUrl: "http://localhost:8000",
+      devUrl: "https://localhost:8000",
       title: "Odblokowany",
       description: "Odblokowany - informacje o decentralizacji",
       social: {
@@ -30,7 +30,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "http://localhost:8000/wp-json"
+          api: "https://unblockedapi.xyz/wp-json"
         }
       }
     },
