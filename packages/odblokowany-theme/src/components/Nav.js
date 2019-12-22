@@ -83,7 +83,7 @@ const NavButton = styled.div`
   opacity: 1;
   height: 50px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 700;
   padding: 13px 30px;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid

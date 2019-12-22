@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState, memo } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect, styled } from "frontity";
 import throttle from "lodash.throttle";
+import { IconContext } from "react-icons";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
 import List from "./List";
 import FeaturedMedia from "./Featured-media";
@@ -48,14 +49,16 @@ const Post = ({ state, actions, libraries }) => {
         <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {data.isPost && (
           <>
-            <PostInfo>
-              <FaCalendarAlt />
-              <DateInfo>{formatDate(date, "long")}</DateInfo>
-            </PostInfo>
-            <PostInfo>
-              <FaStopwatch />
-              <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
-            </PostInfo>
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <PostInfo>
+                <FaCalendarAlt />
+                <DateInfo>{formatDate(date, "long")}</DateInfo>
+              </PostInfo>
+              <PostInfo>
+                <FaStopwatch />
+                <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
+              </PostInfo>
+            </IconContext.Provider>
           </>
         )}
       </Header>
@@ -72,6 +75,9 @@ export default connect(Post);
 
 const Container = styled.div`
   margin: 0;
+  .react-icons {
+    color: var(--light-text);
+  }
 `;
 
 const Content = styled.div`
@@ -84,17 +90,14 @@ const Content = styled.div`
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  & h5 {
-    font-size: 82%;
-    margin: 0;
-  }
 `;
 
 const PostInfo = styled.div`
   display: flex;
   align-items: center;
   & h5 {
-    margin-left: 0.5rem;
+    margin: 0 0.5rem;
+    font-size: 0.75em;
   }
 `;
 

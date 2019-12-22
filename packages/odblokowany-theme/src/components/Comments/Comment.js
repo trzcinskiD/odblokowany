@@ -81,6 +81,7 @@ const PostInfo = styled.div`
     font-size: 75%;
   }
   .react-icons {
+    color: var(--light-text);
     height: 0.75em;
     width: 0.75em;
   }
