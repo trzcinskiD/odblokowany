@@ -6,8 +6,20 @@ const odblokowanyTheme = {
   roots: {
     theme: Theme
   },
+  state: {
+    theme: {
+      isSearchModalOpen: false
+    }
+  },
   actions: {
-    theme: {}
+    theme: {
+      openSearchModal: ({ state }) => {
+        state.theme.isSearchModalOpen = true;
+      },
+      closeSearchModal: ({ state }) => {
+        state.theme.isSearchModalOpen = false;
+      }
+    }
   },
   libraries: {
     html2react: {

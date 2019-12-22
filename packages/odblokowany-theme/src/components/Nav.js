@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import { connect, styled, css } from "frontity";
 import throttle from "lodash.throttle";
+import { IconContext } from "react-icons";
+import { FaSearch } from "react-icons/fa";
 import Link from "./Link";
 import logoImg from "../img/logo.png";
 
-const Nav = ({ state }) => {
+const Nav = ({ state, actions }) => {
   const navRef = useRef(null);
   const [stickNav, setStickNav] = useState(false);
 
@@ -31,23 +33,29 @@ const Nav = ({ state }) => {
   return (
     <StyledNav ref={navRef} stickNav={stickNav}>
       <NavButtonContainer>
+        <Link link={"/"}>
+          <NavButton isSelected={state.router.link === "/"}>
+            <img
+              src={logoImg}
+              css={css`
+                position: relative;
+                bottom: 4px;
+              `}
+            />
+          </NavButton>
+        </Link>
         {state.theme.menu.map(([name, link]) => (
           <Link key={name} link={link}>
             <NavButton isSelected={state.router.link === link}>
-              {name === "logo" ? (
-                <img
-                  src={logoImg}
-                  css={css`
-                    position: relative;
-                    bottom: 4px;
-                  `}
-                />
-              ) : (
-                name
-              )}
+              {name}
             </NavButton>
           </Link>
         ))}
+        <NavButton onClick={actions.theme.openSearchModal}>
+          <IconContext.Provider value={{ className: "react-icons" }}>
+            <FaSearch />
+          </IconContext.Provider>
+        </NavButton>
       </NavButtonContainer>
     </StyledNav>
   );
@@ -85,10 +93,15 @@ const NavButton = styled.div`
   text-align: center;
   font-weight: 700;
   padding: 13px 30px;
+  cursor: pointer;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid
     ${({ isSelected }) => (isSelected ? "var(--text-color)" : "transparent")};
   &:hover {
     box-shadow: var(--shadow) 0px 0px 10px 0px;
+  }
+  .react-icons {
+    height: 1.5em;
+    width: 1.5em;
   }
 `;

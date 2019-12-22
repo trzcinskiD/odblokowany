@@ -8,9 +8,13 @@ import Loading from "./Loading";
 import Page404 from "./Page404";
 import Title from "./Title";
 import Footer from "./Footer";
+import SearchModal from "./Search/SearchModal";
+import SearchResults from "./Search/SearchResults";
 
-const Theme = ({ state }) => {
+const Theme = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
+  const parse = libraries.source.parse(state.router.link);
+  const isSearch = Boolean(parse.query["s"]);
   return (
     <>
       <Title />
@@ -24,8 +28,10 @@ const Theme = ({ state }) => {
       </Head>
       <Global styles={globalStyles} />
       <Nav />
+      <SearchModal />
       <Main>
         {(data.isFetching && <Loading />) ||
+          (isSearch && <SearchResults />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}

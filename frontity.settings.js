@@ -20,7 +20,6 @@ const settings = {
       state: {
         theme: {
           menu: [
-            ["logo", "/"],
             ["O mnie", "/about/"]
           ]
         }
