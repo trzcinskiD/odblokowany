@@ -17,7 +17,7 @@ const Loading = () => (
 export default Loading;
 
 const Container = styled.div`
-  width: 800px;
+  max-width: 628px;
   margin: 0;
   padding: 24px;
   display: flex;
