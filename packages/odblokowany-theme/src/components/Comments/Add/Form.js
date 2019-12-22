@@ -16,22 +16,6 @@ const Form = ({
   formErrors,
   formValid
 }) => {
-  console.log([
-    comment,
-    author,
-    email,
-    formIsSubmitting,
-    formSubmittedSuccessfully,
-    formSubmittedFailed,
-    replyTo,
-    formRef,
-    setReplyTo,
-    onSubmit,
-    onChange,
-    formErrors,
-    formValid
-  ]);
-
   const submitButtonText = (
     <button type="button" disabled={!formValid} onClick={onSubmit}>
       {formIsSubmitting ? "Dodaję komentarz..." : "Dodaj komentarz"}
