@@ -60,8 +60,8 @@ const StyledNav = styled.nav`
   top: 0;
   z-index: 999;
   padding: 0px 20px;
-  box-shadow: rgba(0, 0, 0, 0.208) -1px 1px 23px 4px;
-  background: #fff;
+  box-shadow: var(--shadow) -1px 1px 23px 4px;
+  background: var(--bg);
   ${({ stickNav }) => (stickNav ? "position: fixed;" : null)}
 `;
 
@@ -87,8 +87,8 @@ const NavButton = styled.div`
   padding: 13px 30px;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid
-    ${({ isSelected }) => (isSelected ? "var(--dark)" : "transparent")};
+    ${({ isSelected }) => (isSelected ? "var(--text-color)" : "transparent")};
   &:hover {
-    box-shadow: var(--secondary) 0px 0px 10px 0px;
+    box-shadow: var(--shadow) 0px 0px 10px 0px;
   }
 `;

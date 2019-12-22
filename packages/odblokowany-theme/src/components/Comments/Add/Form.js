@@ -111,14 +111,14 @@ const StyledForm = styled.form`
     font-size: 0.9em;
     line-height: inherit;
     width: 100%;
-    background: white;
+    background: var(--bg);
     outline: none;
     border: none;
     transition: box-shadow 0.3s ease;
     margin-top: 1rem;
     padding: 0.75rem 1rem;
     &:focus {
-      box-shadow: var(--secondary) 0px 0px 10px 0px;
+      box-shadow: var(--shadow) 0px 0px 10px 0px;
     }
   }
 `;
@@ -132,7 +132,7 @@ const Buttons = styled.div`
 `;
 
 const ErrorMessage = styled.p`
-  color: red;
+  color: var(--error);
   margin: 0;
 `;
 

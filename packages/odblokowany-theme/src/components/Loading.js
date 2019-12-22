@@ -5,7 +5,7 @@ import Loader from "react-spinners/ScaleLoader";
 const Loading = () => (
   <Container>
     <Loader
-      color="rgba(12, 17, 43, 0.3)"
+      color="var(--text-color)"
       radius={0}
       margin="3px"
       width={4}
@@ -23,7 +23,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   & > * {
     margin-top: 24px;
   }

@@ -39,11 +39,11 @@ export default connect(Theme);
 
 const globalStyles = css`
   :root {
-    --primary: #f0f0f1;
-    --darkerPrimary: #e9e8e9;
-    --secondary: #c8b272;
-    --third: #817c78;
-    --dark: #37363a;
+    --bg: #f0f0f1;
+    --shadow: #37363a;
+    --text-color: #37363a;
+    --light-text: #817c78;
+    --error: red;
   }
   html {
     box-sizing: border-box;
@@ -55,7 +55,7 @@ const globalStyles = css`
     box-sizing: inherit;
   }
   body {
-    color: var(--dark);
+    color: var(--text-color);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@ const globalStyles = css`
     margin-bottom: 7px;
   }
   h5 {
-    color: var(--third);
+    color: var(--light-text);
   }
   a,
   a:visited {
@@ -112,14 +112,14 @@ const globalStyles = css`
     transition: box-shadow 0.3s ease;
     cursor: pointer;
     border: 0;
-    background: white;
+    background: var(--bg);
     padding: 0.6rem;
     vertical-align: middle;
     text-transform: uppercase;
     font-size: 0.65em;
     font-weight: 600;
     &:hover {
-      box-shadow: var(--secondary) 0px 0px 10px 0px;
+      box-shadow: var(--shadow) 0px 0px 10px 0px;
     }
     &:disabled {
       box-shadow: none;

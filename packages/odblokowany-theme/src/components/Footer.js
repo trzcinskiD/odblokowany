@@ -34,13 +34,13 @@ export default connect(Footer);
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  background: #fff;
+  background: var(--bg);
   flex-shrink: 0;
   & a {
     padding: 0.5em 1em;
     transition: box-shadow 0.3s ease;
     &:hover {
-      box-shadow: var(--secondary) 0px 0px 10px 0px;
+      box-shadow: var(--shadow) 0px 0px 10px 0px;
     }
   }
   .react-icons {

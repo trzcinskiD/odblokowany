@@ -3,13 +3,13 @@ import { styled } from "frontity";
 
 const Page404 = () => (
   <Container>
-    <Title>Oops! 404</Title>
-    <Description>
+    <h1>Oops! 404</h1>
+    <div>
       Niestety nic nie znalazłem pod tym adresem...{" "}
       <span role="img" aria-label="confused face">
         😕
       </span>
-    </Description>
+    </div>
   </Container>
 );
 
@@ -21,7 +21,3 @@ const Container = styled.div`
   padding: 24px;
   text-align: center;
 `;
-
-const Title = styled.h1``;
-
-const Description = styled.div``;
