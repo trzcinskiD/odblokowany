@@ -74,6 +74,9 @@ const NavButtonContainer = styled.div`
   margin: auto;
   padding: 0px;
   list-style: none;
+  & a {
+    text-decoration: none;
+  }
 `;
 
 const NavButton = styled.div`

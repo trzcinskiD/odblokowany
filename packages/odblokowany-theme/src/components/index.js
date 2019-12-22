@@ -105,6 +105,9 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+  a:hover {
+    text-decoration: underline;
+  }
   button {
     transition: box-shadow 0.3s ease;
     cursor: pointer;
