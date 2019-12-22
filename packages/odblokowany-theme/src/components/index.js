@@ -1,5 +1,6 @@
 import React from "react";
-import { Global, css, connect, Head, styled } from "frontity";
+import { Global, connect, Head, styled } from "frontity";
+import globalStyles from "./styles/globalStyles";
 import Nav from "./Nav";
 import Post from "./Post";
 import List from "./List";
@@ -7,7 +8,6 @@ import Loading from "./Loading";
 import Page404 from "./Page404";
 import Title from "./Title";
 import Footer from "./Footer";
-import backgroundPattern from "../img/cream_dust.png";
 
 const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -36,97 +36,6 @@ const Theme = ({ state }) => {
 };
 
 export default connect(Theme);
-
-const globalStyles = css`
-  :root {
-    --bg: #f0f0f1;
-    --shadow: #37363a;
-    --text-color: #37363a;
-    --light-text: #817c78;
-    --error: red;
-  }
-  html {
-    box-sizing: border-box;
-    height: 100%;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  body {
-    color: var(--text-color);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background-image: url(${backgroundPattern});
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-      Helvetica, Arial, "Lucida Grande", sans-serif;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  nav,
-  button,
-  label,
-  input {
-    font-family: "Open Sans", sans-serif;
-  }
-  h1 {
-    font-size: 37px;
-    line-height: 58px;
-    margin-bottom: 30px;
-  }
-  h2 {
-    font-size: 29px;
-    line-height: 46px;
-    margin-top: 49px;
-    margin-bottom: 19px;
-  }
-  h3 {
-    font-size: 23px;
-    line-height: 38px;
-    margin-top: 30px;
-    margin-bottom: 12px;
-  }
-  h4 {
-    font-size: 18px;
-    line-height: 30px;
-    margin-bottom: 7px;
-  }
-  h5 {
-    color: var(--light-text);
-  }
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  button {
-    transition: box-shadow 0.3s ease;
-    cursor: pointer;
-    border: 0;
-    background: var(--bg);
-    padding: 0.6rem;
-    vertical-align: middle;
-    text-transform: uppercase;
-    font-size: 0.65em;
-    font-weight: 600;
-    &:hover {
-      box-shadow: var(--shadow) 0px 0px 10px 0px;
-    }
-    &:disabled {
-      box-shadow: none;
-      cursor: default;
-    }
-  }
-`;
 
 const Main = styled.div`
   display: flex;
