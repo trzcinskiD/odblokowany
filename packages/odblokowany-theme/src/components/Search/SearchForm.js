@@ -4,44 +4,29 @@ import React, { useRef } from "react";
 const SearchForm = ({ state, actions, libraries }) => {
   const parse = libraries.source.parse(state.router.link);
   const searchQuery = parse.query["s"];
-
   const { closeSearchModal } = actions.theme;
-  // Keep a reference to the input so we can grab it's value on form submission
+
   const inputRef = useRef();
 
   const handleSubmit = event => {
-    // Prevent page navigation
     event.preventDefault();
-
-    // Get the input's value
     const searchString = inputRef.current.value;
 
-    // If the typed search string is not empty
-    // Better to trim write spaces as well
     if (searchString.trim().length > 0) {
-      // Let's go search for blogs that match the search string
       actions.router.set(`/?s=${searchString.toLowerCase()}`);
-
-      // Scroll the page to the top
       window.scrollTo(0, 0);
-
-      // Close the search modal
       closeSearchModal();
     }
   };
 
   return (
     <Form role="search" aria-label="404 not found" onSubmit={handleSubmit}>
-      <Label>
-        <p>Search for:</p>
-        <input
-          type="search"
-          defaultValue={searchQuery}
-          placeholder="Search ..."
-          ref={inputRef}
-        />
-      </Label>
-      <button type="submit">Search</button>
+      <input
+        defaultValue={searchQuery}
+        placeholder="Szukaj na blogu"
+        ref={inputRef}
+      />
+      <button type="submit">Szukaj</button>
     </Form>
   );
 };
@@ -49,18 +34,26 @@ const SearchForm = ({ state, actions, libraries }) => {
 export default connect(SearchForm);
 
 const Form = styled.form`
-  align-items: stretch;
   display: flex;
-  flex-wrap: nowrap;
-  margin: 0 0 -0.8rem -0.8rem;
-  justify-content: center;
-  margin-top: 3rem;
-`;
-
-const Label = styled.label`
-  align-items: stretch;
-  display: flex;
-  font-size: inherit;
-  margin: 0;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  input,
+  textarea {
+    font-family: inherit;
+    font-size: 0.9em;
+    line-height: inherit;
+    width: 100%;
+    background: var(--bg);
+    outline: none;
+    border: none;
+    transition: box-shadow 0.3s ease;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    &:focus {
+      box-shadow: var(--shadow) 0px 0px 10px 0px;
+    }
+  }
+  & button {
+    margin: 0.5rem;
+  }
 `;
