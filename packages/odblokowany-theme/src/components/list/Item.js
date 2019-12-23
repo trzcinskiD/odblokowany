@@ -2,6 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import { IconContext } from "react-icons";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
+import Separator from "./Separator";
 import Link from "../Link";
 import FeaturedMedia from "../Featured-media";
 import readTime from "../../util/readTime";
@@ -14,7 +15,10 @@ const Item = ({ item, showExcerpt, showMedia }) => {
     <article>
       <Header>
         <Link link={item.link}>
-          <h1 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+          <PostTitle
+            dangerouslySetInnerHTML={{ __html: item.title.rendered }}
+            showExcerpt={showExcerpt}
+          />
         </Link>
         <IconContext.Provider value={{ className: "react-icons" }}>
           <PostInfo>
@@ -31,6 +35,7 @@ const Item = ({ item, showExcerpt, showMedia }) => {
       {item.excerpt && showExcerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
+      <Separator />
     </article>
   );
 };
@@ -48,6 +53,10 @@ const Header = styled.div`
   .react-icons {
     color: var(--light-text);
   }
+`;
+
+const PostTitle = styled.h1`
+  margin-bottom: ${({ showExcerpt }) => (showExcerpt ? "inherit" : 0.1)}rem;
 `;
 
 const Excerpt = styled.div`
