@@ -3,7 +3,7 @@ import { connect } from "frontity";
 import Item from "./Item";
 import Pagination from "./Pagination";
 
-const List = ({ state }) => {
+const List = ({ state, showExcerpt, showMedia }) => {
   const data = state.source.get(state.router.link);
 
   return (
@@ -15,7 +15,14 @@ const List = ({ state }) => {
       )}
       {data.items.map(({ type, id }) => {
         const item = state.source[type][id];
-        return <Item key={item.id} item={item} />;
+        return (
+          <Item
+            key={item.id}
+            item={item}
+            showExcerpt={showExcerpt}
+            showMedia={showMedia}
+          />
+        );
       })}
       <Pagination />
     </section>

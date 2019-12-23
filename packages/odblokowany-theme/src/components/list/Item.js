@@ -7,7 +7,7 @@ import FeaturedMedia from "../Featured-media";
 import readTime from "../../util/readTime";
 import formatDate from "../../util/formatDate";
 
-const Item = ({ item }) => {
+const Item = ({ item, showExcerpt, showMedia }) => {
   const date = new Date(item.date);
 
   return (
@@ -27,8 +27,8 @@ const Item = ({ item }) => {
           </PostInfo>
         </IconContext.Provider>
       </Header>
-      <FeaturedMedia id={item.featured_media} />
-      {item.excerpt && (
+      {showMedia && <FeaturedMedia id={item.featured_media} />}
+      {item.excerpt && showExcerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
     </article>

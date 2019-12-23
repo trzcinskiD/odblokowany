@@ -32,7 +32,7 @@ const Theme = ({ state, libraries }) => {
       <Main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
-          (data.isArchive && <List />) ||
+          (data.isArchive && <List showExcerpt={true} showMedia={true} />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
       </Main>
@@ -51,6 +51,7 @@ const Main = styled.div`
   line-height: 30px;
   font-size: 18px;
   padding: 19px;
+  justify-content: center;
   & {
     text-align: justify;
   }
