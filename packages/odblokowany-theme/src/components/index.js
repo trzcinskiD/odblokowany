@@ -1,6 +1,6 @@
 import React from "react";
 import { Global, connect, Head, styled } from "frontity";
-import globalStyles from "./styles/globalStyles";
+import globalStyles from "../styles/globalStyles";
 import Nav from "./Nav";
 import Post from "./Post";
 import List from "./List";

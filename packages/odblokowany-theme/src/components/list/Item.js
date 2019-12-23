@@ -40,6 +40,7 @@ export default connect(Item);
 const Header = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   & h5 {
     font-size: 82%;
     margin: 0;

@@ -90,6 +90,7 @@ const Content = styled.div`
 const Header = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const PostInfo = styled.div`

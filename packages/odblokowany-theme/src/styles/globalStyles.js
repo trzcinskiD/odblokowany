@@ -1,5 +1,5 @@
 import { css } from "frontity";
-import backgroundPattern from "../../img/cream_dust.png";
+import backgroundPattern from "../img/cream_dust.png";
 import InterMediumLatin from "./fonts/inter/Inter-Medium-LATIN.woff2";
 import InterSemiBoldLatin from "./fonts/inter/Inter-SemiBold-LATIN.woff2";
 import InterBoldLatin from "./fonts/inter/Inter-Bold-LATIN.woff2";
