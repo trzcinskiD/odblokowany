@@ -4,14 +4,32 @@ import InterMediumLatin from "./fonts/inter/Inter-Medium-LATIN.woff2";
 import InterSemiBoldLatin from "./fonts/inter/Inter-SemiBold-LATIN.woff2";
 import InterBoldLatin from "./fonts/inter/Inter-Bold-LATIN.woff2";
 
-const globalStyles = css`
-  :root {
-    --bg: #f0f0f1;
-    --shadow: #37363a;
-    --text-color: #37363a;
-    --light-text: #817c78;
-    --error: red;
+const colorSetup = colorOption => {
+  switch (colorOption) {
+    case "1":
+      return css`
+        :root {
+          --bg: #ebebea;
+          --shadow: #c3b6af;
+          --text-color: #415146;
+          --light-text: #c7995d;
+          --error: #b22910;
+        }
+      `;
+    default:
+      return css`
+        :root {
+          --bg: #f0f0f1;
+          --shadow: #37363a;
+          --text-color: #37363a;
+          --light-text: #817c78;
+          --error: #b22910;
+        }
+      `;
   }
+};
+
+const documentSetup = css`
   @font-face {
     font-family: "Inter";
     font-style: normal;
@@ -119,5 +137,8 @@ const globalStyles = css`
     }
   }
 `;
+
+const globalStyles = colorOption =>
+  css([colorSetup(colorOption), documentSetup]);
 
 export default globalStyles;
