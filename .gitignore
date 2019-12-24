@@ -1,5 +1,5 @@
 /build
 *node_modules
 
-/mars-theme
-/twentytwenty-theme
+packages/mars-theme
+packages/twentytwenty-theme
