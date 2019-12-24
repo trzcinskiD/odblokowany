@@ -1,9 +1,9 @@
 {
   "name": "odblokowany-theme",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Default theme for 'Odblokowany' blog",
   "author": "trzcinskid",
-  "license": "ISC",
+  "license": "GNU AGPLv3",
   "dependencies": {
     "@frontity/components": "^1.1.14",
     "@frontity/html2react": "^1.1.14",
