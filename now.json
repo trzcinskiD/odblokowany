@@ -1,10 +1,22 @@
 {
-  "alias": "odblokowany.com",
   "version": 2,
   "builds": [
     {
       "src": "package.json",
       "use": "@frontity/now"
+    }
+  ],
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "https://unblockedapi.xyz/wp-json/wp/v2/*",
+      "methods": ["GET", "POST"],
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://odblokowany.com"
+        }
+      ]
     }
   ]
 }
