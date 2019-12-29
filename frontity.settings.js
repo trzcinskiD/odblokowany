@@ -5,7 +5,7 @@ const settings = {
       url: "https://odblokowany.pl",
       devUrl: "https://localhost:8000",
       title: "Odblokowany",
-      description: "Odblokowany - informacje o decentralizacji",
+      description: "Odblokowany - blog o decentralizacji i technologii blockchain",
       social: {
         facebook: "https://www.facebook.com/Danonerk",
         linkedIn: "https://www.linkedin.com/in/damian-trzcinski/",

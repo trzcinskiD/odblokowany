@@ -64,6 +64,7 @@ const documentSetup = css`
     box-sizing: inherit;
   }
   body {
+    height: 100%;
     color: var(--text-color);
     margin: 0;
     display: flex;
@@ -71,6 +72,11 @@ const documentSetup = css`
     background-image: url(${backgroundPattern});
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
       Helvetica, Arial, "Lucida Grande", sans-serif;
+  }
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   h1,
   h2,
