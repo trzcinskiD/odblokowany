@@ -56,7 +56,7 @@ const Header = styled.div`
 `;
 
 const PostTitle = styled.h1`
-  margin-bottom: ${({ showExcerpt }) => (showExcerpt ? "inherit" : 0.1)}rem;
+  margin-bottom: ${({ showExcerpt }) => (showExcerpt ? "inherit" : "0.1rem")};
 `;
 
 const Excerpt = styled.div`

@@ -23,7 +23,7 @@ const SearchResults = ({ state, libraries }) => {
             poniższym formularzu.
           </Text>
         ) : (
-          <Text>Liczba znalezionych artykułów {total}.</Text>
+          <Text>Liczba znalezionych artykułów: {total}</Text>
         )}
       </div>
 

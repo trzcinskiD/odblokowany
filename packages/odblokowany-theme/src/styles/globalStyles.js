@@ -95,6 +95,7 @@ const documentSetup = css`
     font-size: 37px;
     line-height: 58px;
     margin-bottom: 30px;
+    text-align: center;
   }
   h2 {
     font-size: 29px;
