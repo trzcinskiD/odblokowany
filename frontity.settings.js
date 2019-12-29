@@ -2,10 +2,11 @@ const settings = {
   name: "Odblokowany",
   state: {
     frontity: {
-      url: "https://odblokowany.pl",
-      devUrl: "https://localhost:8000",
+      url: "https://odblokowany.com",
+      devUrl: "https://localhost:3000",
       title: "Odblokowany",
-      description: "Odblokowany - blog o decentralizacji i technologii blockchain",
+      description:
+        "Odblokowany - blog o decentralizacji i technologii blockchain",
       social: {
         facebook: "https://www.facebook.com/Danonerk",
         linkedIn: "https://www.linkedin.com/in/damian-trzcinski/",
@@ -19,9 +20,7 @@ const settings = {
       name: "odblokowany-theme",
       state: {
         theme: {
-          menu: [
-            ["O mnie", "/about/"]
-          ]
+          menu: [["O mnie", "/about/"]]
         }
       }
     },
