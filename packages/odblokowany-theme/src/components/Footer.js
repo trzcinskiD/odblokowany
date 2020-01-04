@@ -21,6 +21,8 @@ const Footer = ({ state }) => {
         </a>
         <a
           href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <FaEnvelope />
         </a>
