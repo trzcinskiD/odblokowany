@@ -10,6 +10,7 @@ import Title from "./Title";
 import Footer from "./Footer";
 import SearchModal from "./Search/SearchModal";
 import SearchResults from "./Search/SearchResults";
+import Share from "./Share";
 
 const Theme = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -29,6 +30,7 @@ const Theme = ({ state, libraries }) => {
       <Global styles={globalStyles} />
       <Nav />
       <SearchModal />
+      <Share />
       <Main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
