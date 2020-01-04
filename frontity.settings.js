@@ -11,7 +11,8 @@ const settings = {
         facebook: "https://www.facebook.com/Danonerk",
         linkedIn: "https://www.linkedin.com/in/damian-trzcinski/",
         gitHub: "https://github.com/trzcinskiD",
-        gitLab: "https://gitlab.com/trzcinskid"
+        gitLab: "https://gitlab.com/trzcinskid",
+        mail: "trzcinskid0@gmail.com"
       }
     }
   },

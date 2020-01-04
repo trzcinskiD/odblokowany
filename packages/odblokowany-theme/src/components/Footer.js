@@ -5,7 +5,8 @@ import {
   FaFacebookSquare,
   FaLinkedin,
   FaGithub,
-  FaGitlab
+  FaGitlab,
+  FaEnvelope
 } from "react-icons/fa";
 
 const Footer = ({ state }) => {
@@ -17,6 +18,11 @@ const Footer = ({ state }) => {
         </a>
         <a href={state.frontity.social.linkedIn}>
           <FaLinkedin />
+        </a>
+        <a
+          href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`}
+        >
+          <FaEnvelope />
         </a>
         <a href={state.frontity.social.gitHub}>
           <FaGithub />
