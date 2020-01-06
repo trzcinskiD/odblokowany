@@ -60,6 +60,7 @@ const PostTitle = styled.h1`
 `;
 
 const Excerpt = styled.div`
+  text-align: center;
   & .read-more {
     display: none !important;
   }
