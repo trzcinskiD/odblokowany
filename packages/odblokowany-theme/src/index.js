@@ -24,7 +24,7 @@ const odblokowanyTheme = {
   libraries: {
     html2react: {
       // Ta funkcja sprawia, że wszystkie <img> używają komponentu <Image />
-      // z @frontity/components, który zaiweta lazy loading support
+      // z @frontity/components, który zawiera lazy loading support
       processors: [image]
     }
   }

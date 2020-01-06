@@ -1,6 +1,6 @@
 import readTimeEstimate from "read-time-estimate";
 
-const WORDS_PER_MIN = 275;
+const WORDS_PER_MIN = 180;
 const IMAGE_READ_TIME = 12;
 const CHINESE_KOREAN_READ_TIME = 500;
 const IMAGE_TAGS = ["img", "Image"];

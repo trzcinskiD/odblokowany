@@ -83,7 +83,17 @@ const Container = styled.div`
 const Content = styled.div`
   & p {
     margin-bottom: 34px;
-    text-align: justify;
+  }
+  a {
+    color: var(--special);
+  }
+  code,
+  .Callout {
+    background: var(--special-background);
+  }
+  .Callout {
+    padding: 1.2em;
+    border-radius: 0.5em;
   }
 `;
 

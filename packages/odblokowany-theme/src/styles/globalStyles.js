@@ -22,7 +22,9 @@ const colorSetup = colorOption => {
           --bg: #f0f0f1;
           --shadow: #37363a;
           --text-color: #37363a;
-          --light-text: #817c78;
+          --light-text: #5b5752;
+          --special: #8b7300;
+          --special-background: #c8b27229;
           --error: #b22910;
         }
       `;

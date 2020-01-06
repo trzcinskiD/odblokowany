@@ -37,6 +37,7 @@ const Nav = ({ state, actions }) => {
           <NavButton isSelected={state.router.link === "/"}>
             <img
               src={logoImg}
+              alt="logo"
               css={css`
                 position: relative;
                 bottom: 4px;

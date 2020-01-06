@@ -54,7 +54,4 @@ const Main = styled.div`
   font-size: 18px;
   padding: 19px;
   justify-content: center;
-  & {
-    text-align: justify;
-  }
 `;
