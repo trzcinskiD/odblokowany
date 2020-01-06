@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: odblokowany.com
+Token: 746336d608ea561c5288cb02c0a8c8e2ab1eceb73e01fb3df6ca66999bc8580c
