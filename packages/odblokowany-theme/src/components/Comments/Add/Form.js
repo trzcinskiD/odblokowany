@@ -118,7 +118,7 @@ const StyledForm = styled.form`
     margin-top: 1rem;
     padding: 0.75rem 1rem;
     &:focus {
-      box-shadow: var(--shadow) 0px 0px 10px 0px;
+      box-shadow: var(--shadow) 0 0 10px 0;
     }
   }
 `;

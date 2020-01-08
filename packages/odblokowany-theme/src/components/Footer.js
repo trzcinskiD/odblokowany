@@ -48,7 +48,7 @@ const Container = styled.div`
     padding: 0.5em 1em;
     transition: box-shadow 0.3s ease;
     &:hover {
-      box-shadow: var(--shadow) 0px 0px 10px 0px;
+      box-shadow: var(--shadow) 0 0 10px 0;
     }
   }
   .react-icons {

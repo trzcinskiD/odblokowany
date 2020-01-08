@@ -33,7 +33,7 @@ const colorSetup = colorOption => {
 
 const documentSetup = css`
   @font-face {
-    font-family: "Inter";
+    font-family: Inter;
     font-style: normal;
     font-weight: 500;
     font-display: swap;
@@ -41,7 +41,7 @@ const documentSetup = css`
   }
 
   @font-face {
-    font-family: "Inter";
+    font-family: Inter;
     font-style: normal;
     font-weight: 600;
     font-display: swap;
@@ -49,7 +49,7 @@ const documentSetup = css`
   }
 
   @font-face {
-    font-family: "Inter";
+    font-family: Inter;
     font-style: normal;
     font-weight: 700;
     font-display: swap;
@@ -61,8 +61,8 @@ const documentSetup = css`
     height: 100%;
   }
   *,
-  *:before,
-  *:after {
+  :after,
+  :before {
     box-sizing: inherit;
   }
   body {
@@ -72,7 +72,7 @@ const documentSetup = css`
     display: flex;
     flex-direction: column;
     background-image: url(${backgroundPattern});
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
       Helvetica, Arial, "Lucida Grande", sans-serif;
   }
   #root {
@@ -80,17 +80,17 @@ const documentSetup = css`
     display: flex;
     flex-direction: column;
   }
+  button,
   h1,
   h2,
   h3,
   h4,
   h5,
   h6,
-  nav,
-  button,
+  input,
   label,
-  input {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+  nav {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
       Helvetica, sans-serif;
   }
   h1 {
@@ -128,17 +128,17 @@ const documentSetup = css`
     text-decoration: underline;
   }
   button {
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow .3s ease;
     cursor: pointer;
     border: 0;
     background: var(--bg);
-    padding: 0.6rem;
+    padding: .6rem;
     vertical-align: middle;
     text-transform: uppercase;
-    font-size: 0.65em;
+    font-size: .65em;
     font-weight: 600;
     &:hover {
-      box-shadow: var(--shadow) 0px 0px 10px 0px;
+      box-shadow: var(--shadow) 0 0 10px 0;
     }
     &:disabled {
       box-shadow: none;
