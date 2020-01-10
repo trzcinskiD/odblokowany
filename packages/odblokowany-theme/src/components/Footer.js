@@ -13,23 +13,24 @@ const Footer = ({ state }) => {
   return (
     <Container>
       <IconContext.Provider value={{ className: "react-icons" }}>
-        <a href={state.frontity.social.facebook}>
+        <a href={state.frontity.social.facebook} aria-label="Facebook">
           <FaFacebookSquare />
         </a>
-        <a href={state.frontity.social.linkedIn}>
+        <a href={state.frontity.social.linkedIn} aria-label="LinkedIn">
           <FaLinkedin />
         </a>
         <a
           href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Email"
         >
           <FaEnvelope />
         </a>
-        <a href={state.frontity.social.gitHub}>
+        <a href={state.frontity.social.gitHub} aria-label="Github">
           <FaGithub />
         </a>
-        <a href={state.frontity.social.gitLab}>
+        <a href={state.frontity.social.gitLab} aria-label="Gitlab">
           <FaGitlab />
         </a>
       </IconContext.Provider>
