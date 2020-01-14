@@ -1,5 +1,5 @@
 {
-  "alias": "odblokowany.com",
+  "alias": "https://odblokowany.com",
   "version": 2,
   "builds": [
     {
@@ -7,11 +7,11 @@
       "use": "@frontity/now"
     }
   ],
-  "redirects": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "https://odblokowany.com/$1",
-      "statusCode": 301
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://odblokowany.com/$1" }
     }
   ]
 }
