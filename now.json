@@ -9,9 +9,9 @@
   ],
   "redirects": [
     {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://odblokowany.com/$1" }
+      "source": "/(.*)",
+      "destination": "https://odblokowany.com/$1",
+      "statusCode": 301
     }
   ]
 }
