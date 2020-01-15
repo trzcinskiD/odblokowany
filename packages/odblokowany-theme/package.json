@@ -10,7 +10,7 @@
     "frontity": "^1.4.4",
     "lodash.throttle": "^4.1.1",
     "react-icons": "^3.8.0",
-    "react-spinners": "^0.7.2",
+    "react-spinners": "^0.8.0",
     "read-time-estimate": "0.0.2"
   }
 }
