@@ -1,29 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "frontity";
-import useScript from "./hooks/useScript.js";
+import {
+  TelegramShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton
+} from "react-share";
+import {
+  FaTelegramPlane,
+  FaFacebook,
+  FaLinkedin,
+  FaTwitter,
+  FaShareAlt
+} from "react-icons/fa";
 
-const Share = () => {
-  useScript("https://static.addtoany.com/menu/page.js");
+const Share = ({ shareUrl }) => {
+  const [open, setOpen] = useState(false);
+  const toggleMenu = () => {
+    open ? setOpen(false) : setOpen(true);
+  };
+
   return (
-    <Container className="a2a_kit a2a_kit_size_32 a2a_default_style">
-      <a className="a2a_button_pocket" />
-      <a className="a2a_button_facebook" />
-      <a className="a2a_button_linkedin" />
-      <a className="a2a_dd" href="https://www.addtoany.com/share" />
-    </Container>
+    <Menu>
+      <FaShareAlt onClick={toggleMenu} />
+      <FacebookShareButton
+        className={`item ${open && "left-wide"}`}
+        url={shareUrl}
+      >
+        <FaFacebook />
+      </FacebookShareButton>
+      <TelegramShareButton
+        className={`item ${open && "left-short"}`}
+        url={shareUrl}
+      >
+        <FaTelegramPlane />
+      </TelegramShareButton>
+      <LinkedinShareButton
+        className={`item ${open && "right-short"}`}
+        url={shareUrl}
+      >
+        <FaLinkedin />
+      </LinkedinShareButton>
+      <TwitterShareButton
+        className={`item ${open && "right-wide"}`}
+        url={shareUrl}
+      >
+        <FaTwitter />
+      </TwitterShareButton>
+    </Menu>
   );
 };
 
 export default Share;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  justify-content: center;
-  a {
-    margin: 0.2em;
+const Menu = styled.div`
+  font-size: 2em;
+  margin-top: 0.3em;
+  position: relative;
+  .react-icons {
+    cursor: pointer;
+  }
+  .react-icons:hover {
+    color: var(--text-color);
+  }
+  .item {
+    position: absolute;
+    left: 0;
+    transform: translate(0px, 0px);
+    transition: transform 500ms;
+    transition: 0.5s;
+    visibility: hidden;
+    box-shadow: none;
+  }
+  .left-short {
+    transform: translateX(-1.5em);
+    transition-delay: 0.4s;
+    visibility: visible;
+  }
+  .right-short {
+    transform: translateX(1.5em);
+    transition-delay: 0.4s;
+    visibility: visible;
+  }
+  .right-wide {
+    transform: translateX(3em);
+    transition-delay: 0.2s;
+    visibility: visible;
+  }
+  .left-wide {
+    transform: translateX(-3em);
+    transition-delay: 0.2s;
+    visibility: visible;
   }
 `;

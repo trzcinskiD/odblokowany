@@ -8,6 +8,7 @@ import FeaturedMedia from "../Featured-media";
 import Comments from "../Comments";
 import readTime from "../../util/readTime";
 import formatDate from "../../util/formatDate";
+import Share from "../Share";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -58,6 +59,7 @@ const Post = ({ state, actions, libraries }) => {
                 <FaStopwatch />
                 <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
               </PostInfo>
+              <Share shareUrl={state.frontity.url + state.router.link} />
             </IconContext.Provider>
           </>
         )}

@@ -84,7 +84,7 @@ const NavButtonContainer = styled.div`
   padding: 0;
   list-style: none;
   & a {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 `;
 
