@@ -48,4 +48,7 @@ const Main = styled.div`
   font-size: 18px;
   padding: 19px;
   justify-content: center;
+  @media only screen and (max-width: 376px) {
+    margin: 0;
+  }
 `;

@@ -97,6 +97,14 @@ const Content = styled.div`
     padding: 1.2em;
     border-radius: 0.5em;
   }
+  figcaption {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 0.9em;
+  }
+  img {
+    max-width: 100%;
+  }
 `;
 
 const Header = styled.div`

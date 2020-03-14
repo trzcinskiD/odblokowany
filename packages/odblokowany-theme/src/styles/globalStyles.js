@@ -66,7 +66,6 @@ const documentSetup = css`
     box-sizing: inherit;
   }
   body {
-    height: 100%;
     color: var(--text-color);
     margin: 0;
     display: flex;
@@ -79,6 +78,7 @@ const documentSetup = css`
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
   button,
   h1,
@@ -128,14 +128,14 @@ const documentSetup = css`
     text-decoration: underline;
   }
   button {
-    transition: box-shadow .3s ease;
+    transition: box-shadow 0.3s ease;
     cursor: pointer;
     border: 0;
     background: var(--bg);
-    padding: .6rem;
+    padding: 0.6rem;
     vertical-align: middle;
     text-transform: uppercase;
-    font-size: .65em;
+    font-size: 0.65em;
     font-weight: 600;
     &:hover {
       box-shadow: var(--shadow) 0 0 10px 0;

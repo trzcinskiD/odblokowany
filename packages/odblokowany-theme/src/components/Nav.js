@@ -72,6 +72,9 @@ const StyledNav = styled.nav`
   box-shadow: var(--shadow) -1px 1px 23px 4px;
   background: var(--bg);
   ${({ stickNav }) => (stickNav ? "position: fixed;" : null)}
+  @media only screen and (max-width: 323px) {
+    padding: 0;
+  }
 `;
 
 const NavButtonContainer = styled.div`
