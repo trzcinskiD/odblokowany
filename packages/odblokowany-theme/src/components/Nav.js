@@ -88,6 +88,7 @@ const NavButtonContainer = styled.div`
   list-style: none;
   & a {
     text-decoration: none !important;
+    white-space: nowrap;
   }
 `;
 

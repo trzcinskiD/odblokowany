@@ -77,8 +77,8 @@ export default connect(Post);
 
 const Container = styled.div`
   margin: 0;
-  @media only screen and (max-width: 320px) {
-    max-width: 320px;
+  @media only screen and (max-width: 385px) {
+    max-width: 100vw;
     padding: 0.5em;
   }
   .react-icons {

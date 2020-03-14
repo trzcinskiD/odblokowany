@@ -31,7 +31,11 @@ const Item = ({ item, showExcerpt, showMedia }) => {
           </PostInfo>
         </IconContext.Provider>
       </Header>
-      {showMedia && <FeaturedMedia id={item.featured_media} />}
+      {showMedia && (
+        <Link link={item.link}>
+          <FeaturedMedia id={item.featured_media} />
+        </Link>
+      )}
       {item.excerpt && showExcerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
