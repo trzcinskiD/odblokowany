@@ -67,29 +67,34 @@ const Menu = styled.div`
     position: absolute;
     left: 0;
     transform: translate(0px, 0px);
-    transition: transform 500ms;
+    transition: transform 0.5s, opacity 1s;
     transition: 0.5s;
+    opacity: 0;
     visibility: hidden;
     box-shadow: none;
   }
   .left-short {
     transform: translateX(-1.5em);
     transition-delay: 0.4s;
+    opacity: 1;
     visibility: visible;
   }
   .right-short {
     transform: translateX(1.5em);
     transition-delay: 0.4s;
+    opacity: 1;
     visibility: visible;
   }
   .right-wide {
     transform: translateX(3em);
     transition-delay: 0.2s;
+    opacity: 1;
     visibility: visible;
   }
   .left-wide {
     transform: translateX(-3em);
     transition-delay: 0.2s;
+    opacity: 1;
     visibility: visible;
   }
 `;
