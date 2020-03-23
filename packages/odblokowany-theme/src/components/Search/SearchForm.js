@@ -50,7 +50,7 @@ const Form = styled.form`
     margin-top: 1rem;
     padding: 0.75rem 1rem;
     &:focus {
-      box-shadow: var(--shadow) 0 0 10px 0;
+      box-shadow: var(--shadow) 0 0 4px 0;
     }
   }
   & button {

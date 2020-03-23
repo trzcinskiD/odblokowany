@@ -49,7 +49,7 @@ const Container = styled.div`
     padding: 0.5em 1em;
     transition: box-shadow 0.3s ease;
     &:hover {
-      box-shadow: var(--shadow) 0 0 10px 0;
+      box-shadow: var(--shadow) 0 0 4px 0;
     }
   }
   .react-icons {

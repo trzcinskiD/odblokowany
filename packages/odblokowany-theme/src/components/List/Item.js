@@ -33,7 +33,7 @@ const Item = ({ item, showExcerpt, showMedia }) => {
       </Header>
       {showMedia && (
         <Link link={item.link}>
-          <FeaturedMedia id={item.featured_media} />
+          <FeaturedMedia id={item.featured_media} clickable={true} />
         </Link>
       )}
       {item.excerpt && showExcerpt && (

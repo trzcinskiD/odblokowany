@@ -2,7 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
 
-const FeaturedMedia = ({ state, id }) => {
+const FeaturedMedia = ({ state, id, clickable = false }) => {
   const media = state.source.attachment[id];
   if (!media) return null;
   const srcset =
@@ -21,6 +21,7 @@ const FeaturedMedia = ({ state, id }) => {
         alt={media.title.rendered}
         src={media.source_url}
         srcSet={srcset}
+        clickable={clickable}
       />
     </Container>
   );
@@ -38,4 +39,5 @@ const StyledImage = styled(Image)`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  ${({ clickable }) => (clickable ? "&:hover { opacity: 0.9 }" : null)}
 `;

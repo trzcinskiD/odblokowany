@@ -69,7 +69,7 @@ const StyledNav = styled.nav`
   top: 0;
   z-index: 999;
   padding: 0 20px;
-  box-shadow: var(--shadow) -1px 1px 23px 4px;
+  box-shadow: var(--shadow) 0px -2px 15px 2px;
   background: var(--bg);
   ${({ stickNav }) => (stickNav ? "position: fixed;" : null)}
   @media only screen and (max-width: 323px) {
@@ -103,7 +103,7 @@ const NavButton = styled.div`
   border-bottom: 1px solid
     ${({ isSelected }) => (isSelected ? "var(--text-color)" : "transparent")};
   &:hover {
-    box-shadow: var(--shadow) 0 0 10px 0;
+    box-shadow: var(--shadow) 0 0 4px 0;
   }
   .react-icons {
     height: 1.5em;
