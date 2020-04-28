@@ -21,7 +21,7 @@ const settings = {
       name: "odblokowany-theme",
       state: {
         theme: {
-          menu: [["O mnie", "/about/"]]
+          menu: [["O mnie", "/about/"], ["Narzędzia", "/moje-narzedzia/"]]
         }
       }
     },
