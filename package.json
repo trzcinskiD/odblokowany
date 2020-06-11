@@ -16,12 +16,12 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "@frontity/core": "^1.4.1",
-    "@frontity/head-tags": "^1.0.0",
-    "@frontity/html2react": "^1.1.15",
-    "@frontity/tiny-router": "^1.0.18",
-    "@frontity/wp-source": "^1.5.0",
-    "frontity": "^1.4.4",
+    "@frontity/core": "^1.5.3",
+    "@frontity/head-tags": "^1.0.2",
+    "@frontity/html2react": "^1.3.2",
+    "@frontity/tiny-router": "^1.2.0",
+    "@frontity/wp-source": "^1.7.0",
+    "frontity": "^1.6.0",
     "odblokowany-theme": "./packages/odblokowany-theme"
   }
 }
