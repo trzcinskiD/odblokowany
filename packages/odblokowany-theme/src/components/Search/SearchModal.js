@@ -3,7 +3,7 @@ import { styled, connect, Global } from "frontity";
 import { IconContext } from "react-icons";
 import { FaTimes, FaSearch } from "react-icons/fa";
 import useFocusTrap from "../hooks/use-trap-focus";
-import useFocusEffect from "../hooks/use-focus-effect";
+import useFocusEffect from "../../util/hooks/use-focus-effect";
 
 const SearchModal = ({ state, actions, libraries }) => {
   const parse = libraries.source.parse(state.router.link);

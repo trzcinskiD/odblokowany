@@ -1,59 +1,55 @@
-import { connect, styled } from "frontity";
 import React, { useRef } from "react";
+import { connect } from "frontity";
+import { motion } from "framer-motion";
+import OutsideClickHandler from "react-outside-click-handler";
+import useFocusEffect from "../../util/hooks/use-focus-effect";
 
 const SearchForm = ({ state, actions, libraries }) => {
   const parse = libraries.source.parse(state.router.link);
   const searchQuery = parse.query["s"];
-  const { closeSearchModal } = actions.theme;
+  const { isSearchOpen } = state.theme;
 
   const inputRef = useRef();
 
-  const handleSubmit = event => {
+  useFocusEffect(inputRef, isSearchOpen);
+
+  const formatQuery = (query) => query.trim().replace(" ", "+").toLowerCase();
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     const searchString = inputRef.current.value;
-
     if (searchString.trim().length > 0) {
-      actions.router.set(`/?s=${searchString.toLowerCase()}`);
+      actions.router.set(`/?s=${formatQuery(searchString)}`);
       window.scrollTo(0, 0);
-      closeSearchModal();
     }
   };
 
   return (
-    <Form role="search" aria-label="404 not found" onSubmit={handleSubmit}>
-      <input
-        defaultValue={searchQuery}
-        placeholder="Szukaj na blogu"
-        ref={inputRef}
-      />
-      <button type="submit">Szukaj</button>
-    </Form>
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        actions.theme.closeSearch();
+      }}
+    >
+      {isSearchOpen && (
+        <motion.form
+          role="search"
+          aria-label="Search for:"
+          onSubmit={handleSubmit}
+          autoComplete="off"
+          initial={{ opacity: 0, x: 100, visibility: "hidden" }}
+          animate={{ opacity: 1, x: 0, visibility: "" }}
+        >
+          <input
+            ref={inputRef}
+            type="search"
+            defaultValue={searchQuery || ""}
+            placeholder="Szukaj na blogu"
+            name="search"
+          />
+        </motion.form>
+      )}
+    </OutsideClickHandler>
   );
 };
 
 export default connect(SearchForm);
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  input,
-  textarea {
-    font-family: inherit;
-    font-size: 0.9em;
-    line-height: inherit;
-    width: 100%;
-    background: var(--bg);
-    outline: none;
-    border: none;
-    transition: box-shadow 0.3s ease;
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    &:focus {
-      box-shadow: var(--shadow) 0 0 4px 0;
-    }
-  }
-  & button {
-    margin: 0.5rem;
-  }
-`;

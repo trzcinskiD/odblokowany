@@ -8,7 +8,7 @@ import Loading from "./Loading";
 import Page404 from "./Page404";
 import Title from "./Title";
 import Footer from "./Footer";
-import SearchModal from "./Search/SearchModal";
+//import SearchModal from "./Search/SearchModal";
 import SearchResults from "./Search/SearchResults";
 
 const Theme = ({ state, libraries }) => {
@@ -24,7 +24,7 @@ const Theme = ({ state, libraries }) => {
       </Head>
       <Global styles={globalStyles} />
       <Nav />
-      <SearchModal />
+      {/* <SearchModal /> */}
       <Main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||

@@ -1,10 +1,11 @@
 import { css } from "frontity";
 import backgroundPattern from "../img/cream_dust.png";
-import InterMediumLatin from "./fonts/inter/Inter-Medium-LATIN.woff2";
-import InterSemiBoldLatin from "./fonts/inter/Inter-SemiBold-LATIN.woff2";
-import InterBoldLatin from "./fonts/inter/Inter-Bold-LATIN.woff2";
+import InterRegularLatin from "./fonts/inter/Inter-Regular.woff2";
+import InterMediumLatin from "./fonts/inter/Inter-Medium.woff2";
+import InterSemiBoldLatin from "./fonts/inter/Inter-SemiBold.woff2";
+import InterBoldLatin from "./fonts/inter/Inter-Bold.woff2";
 
-const colorSetup = colorOption => {
+const colorSetup = (colorOption) => {
   switch (colorOption) {
     case "1":
       return css`
@@ -19,9 +20,11 @@ const colorSetup = colorOption => {
     default:
       return css`
         :root {
+          --text: #242423;
+          --border: #e5e5e5;
+          --white: #fff;
           --bg: #f0f0f1;
           --shadow: #37363a;
-          --text-color: #37363a;
           --light-text: #5b5752;
           --special: #8b7300;
           --special-background: #c8b27229;
@@ -32,6 +35,14 @@ const colorSetup = colorOption => {
 };
 
 const documentSetup = css`
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(${InterRegularLatin}) format("woff2");
+  }
+
   @font-face {
     font-family: Inter;
     font-style: normal;
@@ -66,13 +77,16 @@ const documentSetup = css`
     box-sizing: inherit;
   }
   body {
-    color: var(--text-color);
+    color: var(--text);
     margin: 0;
     display: flex;
     flex-direction: column;
     background-image: url(${backgroundPattern});
     font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
       Helvetica, Arial, "Lucida Grande", sans-serif;
+  }
+  p {
+    font-size: 1em;
   }
   #root {
     height: 100%;
@@ -87,7 +101,6 @@ const documentSetup = css`
   h4,
   h5,
   h6,
-  input,
   label,
   nav {
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
@@ -106,26 +119,32 @@ const documentSetup = css`
     margin-bottom: 19px;
   }
   h3 {
-    font-size: 23px;
-    line-height: 38px;
-    margin-top: 30px;
-    margin-bottom: 12px;
+    font-size: 1.125em;
+    line-height: 1.375em;
+    font-weight: bold;
+    letter-spacing: -0.014em;
   }
   h4 {
-    font-size: 18px;
-    line-height: 30px;
-    margin-bottom: 7px;
+    font-weight: 500;
+    font-size: 0.875em;
+    line-height: 1.063em;
+    letter-spacing: -0.006em;
   }
   h5 {
     color: var(--light-text);
   }
-  a,
-  a:visited {
+  a, a:visited {
     color: inherit;
     text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 0.125em;
+    transition: background-size cubic-bezier(0, 0.5, 0, 1) 0.5s;
   }
-  a:hover {
-    text-decoration: underline;
+  a:hover,
+  a:focus {
+    background-size: 100% 0.125em;
   }
   button {
     transition: box-shadow 0.3s ease;
@@ -145,9 +164,26 @@ const documentSetup = css`
       cursor: default;
     }
   }
+  input {
+    background: var(--white);
+    border: 1px solid var(--border);
+    box-sizing: border-box;
+    padding: 0.75em 1.5em;
+    &:focus {
+      outline-color: var(--special);
+    }
+    &[type="search"] {
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+    }
+  }
 `;
 
-const globalStyles = colorOption =>
+const globalStyles = (colorOption) =>
   css([colorSetup(colorOption), documentSetup]);
 
 export default globalStyles;

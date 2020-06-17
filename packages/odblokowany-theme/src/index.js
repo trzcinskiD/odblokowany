@@ -8,16 +8,16 @@ const odblokowanyTheme = {
   },
   state: {
     theme: {
-      isSearchModalOpen: false
+      isSearchOpen: false
     }
   },
   actions: {
     theme: {
-      openSearchModal: ({ state }) => {
-        state.theme.isSearchModalOpen = true;
+      openSearch: ({ state }) => {
+        state.theme.isSearchOpen = true;
       },
-      closeSearchModal: ({ state }) => {
-        state.theme.isSearchModalOpen = false;
+      closeSearch: ({ state }) => {
+        state.theme.isSearchOpen = false;
       }
     }
   },
