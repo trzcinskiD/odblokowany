@@ -1,7 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import List from "../List";
-import SearchForm from "./SearchForm";
+import List from "./List";
 
 const SearchResults = ({ state, libraries }) => {
   const currentPath = state.router.link;
@@ -11,7 +10,7 @@ const SearchResults = ({ state, libraries }) => {
   const parse = libraries.source.parse(state.router.link);
   const searchQuery = parse.query["s"];
 
-  const reverseFormat = query => query.replace("+", " ");
+  const reverseFormat = (query) => query.replace("+", " ");
 
   return (
     <Results>
@@ -26,14 +25,7 @@ const SearchResults = ({ state, libraries }) => {
           <Text>Liczba znalezionych artykułów: {total}</Text>
         )}
       </div>
-
-      {isEmpty ? (
-        <div>
-          <SearchForm />
-        </div>
-      ) : (
-        <List showExcerpt={false} showMedia={false} />
-      )}
+      {!isEmpty && <List showExcerpt={false} showMedia={false} />}
     </Results>
   );
 };

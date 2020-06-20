@@ -1,5 +1,4 @@
 import { css } from "frontity";
-import backgroundPattern from "../img/cream_dust.png";
 import InterRegularLatin from "./fonts/inter/Inter-Regular.woff2";
 import InterMediumLatin from "./fonts/inter/Inter-Medium.woff2";
 import InterSemiBoldLatin from "./fonts/inter/Inter-SemiBold.woff2";
@@ -13,22 +12,23 @@ const colorSetup = (colorOption) => {
           --bg: #ebebea;
           --shadow: #c3b6af;
           --text-color: #415146;
-          --light-text: #c7995d;
+          --lightText: #c7995d;
           --error: #b22910;
         }
       `;
     default:
       return css`
         :root {
-          --text: #242423;
-          --border: #e5e5e5;
           --white: #fff;
-          --bg: #f0f0f1;
-          --shadow: #37363a;
-          --light-text: #5b5752;
+          --black: #000;
+          --background: #fbfbfb;
+          --text: #242423;
+          --lightText: #333533;
+          --border: #e5e5e5;
           --special: #8b7300;
-          --special-background: #c8b27229;
           --error: #b22910;
+          --shadow: #37363a;
+          --special-background: #c8b27229;
         }
       `;
   }
@@ -81,9 +81,8 @@ const documentSetup = css`
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-image: url(${backgroundPattern});
-    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
-      Helvetica, Arial, "Lucida Grande", sans-serif;
+    background-color: var(--background);
+    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   }
   p {
     font-size: 1em;
@@ -102,15 +101,14 @@ const documentSetup = css`
   h5,
   h6,
   label,
-  nav {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      Helvetica, sans-serif;
+  nav,
+  span {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   }
   h1 {
-    font-size: 37px;
-    line-height: 58px;
-    margin-bottom: 30px;
-    text-align: center;
+    font-size: 2.5em;
+    letter-spacing: -0.022em;
+    line-height: 1.4em;
   }
   h2 {
     font-size: 29px;
@@ -131,9 +129,13 @@ const documentSetup = css`
     letter-spacing: -0.006em;
   }
   h5 {
-    color: var(--light-text);
+    font-size: 0.75em;
+    letter-spacing: 0em;
+    line-height: 1.417em;
+    color: var(--lightText);
   }
-  a, a:visited {
+  a,
+  a:visited {
     color: inherit;
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -150,7 +152,7 @@ const documentSetup = css`
     transition: box-shadow 0.3s ease;
     cursor: pointer;
     border: 0;
-    background: var(--bg);
+    background: var(--background);
     padding: 0.6rem;
     vertical-align: middle;
     text-transform: uppercase;
@@ -183,7 +185,6 @@ const documentSetup = css`
   }
 `;
 
-const globalStyles = (colorOption) =>
-  css([colorSetup(colorOption), documentSetup]);
+const globalStyles = (colorOption) => css([colorSetup(colorOption), documentSetup]);
 
 export default globalStyles;

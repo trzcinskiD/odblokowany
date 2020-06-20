@@ -1,21 +1,7 @@
 import React from "react";
 import { styled } from "frontity";
 
-const Form = ({
-  comment,
-  author,
-  email,
-  formIsSubmitting,
-  formSubmittedSuccessfully,
-  formSubmittedFailed,
-  replyTo,
-  formRef,
-  setReplyTo,
-  onSubmit,
-  onChange,
-  formErrors,
-  formValid
-}) => {
+const Form = ({ comment, author, email, formIsSubmitting, formSubmittedSuccessfully, formSubmittedFailed, replyTo, formRef, setReplyTo, onSubmit, onChange, formErrors, formValid }) => {
   const submitButtonText = (
     <button type="button" disabled={!formValid} onClick={onSubmit}>
       {formIsSubmitting ? "Dodaję komentarz..." : "Dodaj komentarz"}
@@ -28,14 +14,9 @@ const Form = ({
     </button>
   ) : null;
 
-  const successMessageMarkup = formSubmittedSuccessfully ? (
-    <p>Dzięki! Komentarz pojawi się na stronie po zatwierdzeniu.</p>
-  ) : null;
+  const successMessageMarkup = formSubmittedSuccessfully ? <p>Dzięki! Komentarz pojawi się na stronie po zatwierdzeniu.</p> : null;
 
-  const errorMessageMarkup =
-    formSubmittedFailed && !formSubmittedSuccessfully
-      ? "Coś poszło nie tak... przykro mi spróbuj później."
-      : null;
+  const errorMessageMarkup = formSubmittedFailed && !formSubmittedSuccessfully ? "Coś poszło nie tak... przykro mi spróbuj później." : null;
 
   const validateFieldErrors = Object.keys(formErrors).map((fieldName, i) => {
     if (formErrors[fieldName].length > 0) {
@@ -50,38 +31,9 @@ const Form = ({
       {replyTo ? <h4>Odpowiedz na komentarz</h4> : <h4>Dodaj komentarz</h4>}
       <StyledForm ref={formRef}>
         <div>
-          <input
-            id="author"
-            name="author"
-            type="text"
-            placeholder="Autor"
-            required
-            disabled={formIsSubmitting}
-            value={author}
-            onChange={onChange}
-          />
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            disabled={formIsSubmitting}
-            value={email}
-            onChange={onChange}
-          />
-          <textarea
-            id="comment"
-            name="comment"
-            placeholder="Wpisz swój komentarz"
-            cols="45"
-            rows="8"
-            maxLength="65525"
-            required
-            disabled={formIsSubmitting}
-            value={comment}
-            onChange={onChange}
-          />
+          <input id="author" name="author" type="text" placeholder="Autor" required disabled={formIsSubmitting} value={author} onChange={onChange} />
+          <input id="email" type="email" name="email" placeholder="Email" required disabled={formIsSubmitting} value={email} onChange={onChange} />
+          <textarea id="comment" name="comment" placeholder="Wpisz swój komentarz" cols="45" rows="8" maxLength="65525" required disabled={formIsSubmitting} value={comment} onChange={onChange} />
         </div>
         <Buttons>
           {cancelReplyButton}
@@ -91,9 +43,7 @@ const Form = ({
       <FormInfo>
         {successMessageMarkup}
         {validateFieldErrors}
-        {errorMessageMarkup && (
-          <ErrorMessage>{errorMessageMarkup}</ErrorMessage>
-        )}
+        {errorMessageMarkup && <ErrorMessage>{errorMessageMarkup}</ErrorMessage>}
       </FormInfo>
     </div>
   );
@@ -111,7 +61,7 @@ const StyledForm = styled.form`
     font-size: 0.9em;
     line-height: inherit;
     width: 100%;
-    background: var(--bg);
+    background: var(--background);
     outline: none;
     border: none;
     transition: box-shadow 0.3s ease;

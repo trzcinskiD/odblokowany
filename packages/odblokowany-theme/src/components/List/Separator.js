@@ -1,7 +1,7 @@
 import { styled } from "frontity";
 
 const Separator = styled.hr`
-  color: var(--light-text);
+  color: var(--lightText);
   margin: 3rem auto;
   width: 100%;
   opacity: 0.6;
@@ -21,7 +21,7 @@ const Separator = styled.hr`
 
   &:before,
   &:after {
-    background: var(--light-text);
+    background: var(--lightText);
     content: "";
     display: block;
     height: 1.6rem;

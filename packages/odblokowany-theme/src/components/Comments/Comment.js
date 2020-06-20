@@ -6,18 +6,7 @@ import List from "./List";
 import Add from "./Add";
 import formatDate from "../../util/formatDate";
 
-const Comment = ({
-  id,
-  post,
-  avatar,
-  author,
-  date,
-  content,
-  nestLvl,
-  replyTo,
-  setReplyTo,
-  formRef
-}) => {
+const Comment = ({ id, post, avatar, author, date, content, nestLvl, replyTo, setReplyTo, formRef }) => {
   const commentNestLvl = nestLvl === 5 ? nestLvl : nestLvl + 1;
   return (
     <>
@@ -35,27 +24,14 @@ const Comment = ({
           </PostInfo>
           <Content
             dangerouslySetInnerHTML={{
-              __html: content
+              __html: content,
             }}
           />
           <button onClick={() => setReplyTo(id)}>Odpowiedz</button>
         </div>
       </Container>
-      {replyTo === id ? (
-        <Add
-          formRef={formRef}
-          postId={post}
-          replyTo={replyTo}
-          setReplyTo={setReplyTo}
-        />
-      ) : null}
-      <List
-        parentId={id}
-        postId={post}
-        nestLvl={commentNestLvl}
-        replyTo={replyTo}
-        setReplyTo={setReplyTo}
-      />
+      {replyTo === id ? <Add formRef={formRef} postId={post} replyTo={replyTo} setReplyTo={setReplyTo} /> : null}
+      <List parentId={id} postId={post} nestLvl={commentNestLvl} replyTo={replyTo} setReplyTo={setReplyTo} />
     </>
   );
 };
@@ -64,9 +40,7 @@ export default Comment;
 
 const Container = styled.div`
   display: flex;
-  margin: 1rem 0 1rem
-    ${({ commentNestLvl }) =>
-      commentNestLvl === 1 ? 0 : 1.625 * commentNestLvl}rem;
+  margin: 1rem 0 1rem ${({ commentNestLvl }) => (commentNestLvl === 1 ? 0 : 1.625 * commentNestLvl)}rem;
 `;
 
 const Author = styled.h4`
@@ -81,7 +55,7 @@ const PostInfo = styled.div`
     font-size: 75%;
   }
   .react-icons {
-    color: var(--light-text);
+    color: var(--lightText);
     height: 0.75em;
     width: 0.75em;
   }

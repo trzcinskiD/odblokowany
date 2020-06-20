@@ -8,24 +8,10 @@ const Box = ({ postId }) => {
   const formRef = useRef(null);
 
   return (
-    <CommentBox className="comment">
+    <CommentBox className="comment" id="comments">
       <h3>Komentarze</h3>
-      <List
-        parentId={0}
-        postId={postId}
-        nestLvl={0}
-        replyTo={replyTo}
-        setReplyTo={setReplyTo}
-        formRef={formRef}
-      />
-      {replyTo ? null : (
-        <Add
-          formRef={formRef}
-          postId={postId}
-          replyTo={replyTo}
-          setReplyTo={setReplyTo}
-        />
-      )}
+      <List parentId={0} postId={postId} nestLvl={0} replyTo={replyTo} setReplyTo={setReplyTo} formRef={formRef} />
+      {replyTo ? null : <Add formRef={formRef} postId={postId} replyTo={replyTo} setReplyTo={setReplyTo} />}
     </CommentBox>
   );
 };

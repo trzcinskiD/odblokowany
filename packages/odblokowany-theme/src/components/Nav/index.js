@@ -2,8 +2,8 @@ import React from "react";
 import { connect, styled } from "frontity";
 import { IconContext } from "react-icons";
 import { FaSearch } from "react-icons/fa";
-import Link from "./Link";
-import SearchForm from "./Search/SearchForm";
+import Link from "../Link";
+import SearchForm from "./SearchForm";
 
 const Nav = ({ state, actions }) => {
   return (

@@ -8,8 +8,7 @@ import Loading from "./Loading";
 import Page404 from "./Page404";
 import Title from "./Title";
 import Footer from "./Footer";
-//import SearchModal from "./Search/SearchModal";
-import SearchResults from "./Search/SearchResults";
+import SearchResults from "./SearchResults";
 
 const Theme = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -24,7 +23,6 @@ const Theme = ({ state, libraries }) => {
       </Head>
       <Global styles={globalStyles} />
       <Nav />
-      {/* <SearchModal /> */}
       <Main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
@@ -42,10 +40,9 @@ export default connect(Theme);
 const Main = styled.div`
   display: flex;
   flex: 1 0 auto;
-  max-width: 628px;
-  margin: auto;
-  line-height: 30px;
-  font-size: 18px;
+  max-width: 878px;
+  margin: 3.125em auto 0 auto;
+  font-size: 16px;
   padding: 19px;
   justify-content: center;
   @media only screen and (max-width: 376px) {

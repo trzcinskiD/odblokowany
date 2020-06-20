@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "frontity";
-import Item from "./Item";
+import BigArticle from "./BigArticle";
 import Pagination from "./Pagination";
 
 const List = ({ state, showExcerpt, showMedia }) => {
   const data = state.source.get(state.router.link);
-
   return (
     <section>
       {data.isTaxonomy && (
@@ -14,15 +13,8 @@ const List = ({ state, showExcerpt, showMedia }) => {
         </h3>
       )}
       {data.items.map(({ type, id }) => {
-        const item = state.source[type][id];
-        return (
-          <Item
-            key={item.id}
-            item={item}
-            showExcerpt={showExcerpt}
-            showMedia={showMedia}
-          />
-        );
+        const articleData = state.source[type][id];
+        return <BigArticle key={articleData.id} articleData={articleData} showExcerpt={showExcerpt} showMedia={showMedia} />;
       })}
       <Pagination />
     </section>

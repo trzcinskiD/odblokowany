@@ -3,15 +3,7 @@ import { connect } from "frontity";
 import Loading from "../Loading";
 import Comment from "./Comment";
 
-const List = ({
-  libraries,
-  parentId,
-  postId,
-  nestLvl,
-  setReplyTo,
-  replyTo,
-  formRef
-}) => {
+const List = ({ libraries, parentId, postId, nestLvl, setReplyTo, replyTo, formRef }) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,10 +11,10 @@ const List = ({
     libraries.source.api
       .get({
         endpoint: "comments",
-        params: { post: postId, parent: parentId, per_page: 100 }
+        params: { post: postId, parent: parentId, per_page: 100 },
       })
-      .then(response => {
-        response.json().then(data => {
+      .then((response) => {
+        response.json().then((data) => {
           setComments(data);
           setLoading(false);
         });
@@ -37,7 +29,7 @@ const List = ({
           {comments.length === 0 && parentId === 0 && <p>Brak komentarzy</p>}
           {comments.length > 0 && (
             <>
-              {comments.map(item => {
+              {comments.map((item) => {
                 const date = new Date(item.date);
                 return (
                   <Comment

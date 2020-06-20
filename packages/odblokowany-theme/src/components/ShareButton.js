@@ -1,67 +1,45 @@
 import React, { useState } from "react";
 import { styled } from "frontity";
-import {
-  TelegramShareButton,
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton
-} from "react-share";
-import {
-  FaTelegramPlane,
-  FaFacebook,
-  FaLinkedin,
-  FaTwitter,
-  FaShareAlt
-} from "react-icons/fa";
+import { TelegramShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
+import { FaTelegramPlane, FaFacebook, FaLinkedin, FaTwitter, FaShareAlt } from "react-icons/fa";
 
-const Share = ({ shareUrl }) => {
+const ShareButton = ({ shareUrl, size }) => {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
     open ? setOpen(false) : setOpen(true);
   };
 
   return (
-    <Menu>
+    <Menu size={size}>
       <FaShareAlt onClick={toggleMenu} />
-      <FacebookShareButton
-        className={`item ${open && "left-wide"}`}
-        url={shareUrl}
-      >
+      <FacebookShareButton className={`item ${open && "left-wide"}`} url={shareUrl}>
         <FaFacebook />
       </FacebookShareButton>
-      <TelegramShareButton
-        className={`item ${open && "left-short"}`}
-        url={shareUrl}
-      >
+      <TelegramShareButton className={`item ${open && "left-short"}`} url={shareUrl}>
         <FaTelegramPlane />
       </TelegramShareButton>
-      <LinkedinShareButton
-        className={`item ${open && "right-short"}`}
-        url={shareUrl}
-      >
+      <LinkedinShareButton className={`item ${open && "right-short"}`} url={shareUrl}>
         <FaLinkedin />
       </LinkedinShareButton>
-      <TwitterShareButton
-        className={`item ${open && "right-wide"}`}
-        url={shareUrl}
-      >
+      <TwitterShareButton className={`item ${open && "right-wide"}`} url={shareUrl}>
         <FaTwitter />
       </TwitterShareButton>
     </Menu>
   );
 };
 
-export default Share;
+export default ShareButton;
 
 const Menu = styled.div`
-  font-size: 2em;
-  margin-top: 0.3em;
+  color: var(--lightText);
+  cursor: pointer;
+  font-size: ${({ size }) => size}em;
   position: relative;
   .react-icons {
     cursor: pointer;
   }
   .react-icons:hover {
-    color: var(--text-color);
+    color: var(--text);
   }
   .item {
     position: absolute;
