@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "frontity";
 import BigArticle from "./BigArticle";
+import NormalArticle from "./NormalArticle";
+import SmallArticle from "./SmallArticle";
 import Pagination from "./Pagination";
 
-const List = ({ state, showExcerpt, showMedia }) => {
+const List = ({ state, showMedia, articleSize }) => {
   const data = state.source.get(state.router.link);
   return (
     <section>
@@ -14,7 +16,13 @@ const List = ({ state, showExcerpt, showMedia }) => {
       )}
       {data.items.map(({ type, id }) => {
         const articleData = state.source[type][id];
-        return <BigArticle key={articleData.id} articleData={articleData} showExcerpt={showExcerpt} showMedia={showMedia} />;
+        switch (articleSize) {
+          case "normal":
+            return <NormalArticle key={articleData.id} articleData={articleData} />;
+          case "big":
+          default:
+            return <BigArticle key={articleData.id} articleData={articleData} />;
+        }
       })}
       <Pagination />
     </section>

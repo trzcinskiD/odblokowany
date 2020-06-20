@@ -16,16 +16,9 @@ const SearchResults = ({ state, libraries }) => {
     <Results>
       <div>
         <Text label="Search">{`Szukałeś “${reverseFormat(searchQuery)}”`}</Text>
-        {isEmpty ? (
-          <Text>
-            Nic mi się nie kojarzy z wyszukiwaną frazą. Spróbuj ponownie w
-            poniższym formularzu.
-          </Text>
-        ) : (
-          <Text>Liczba znalezionych artykułów: {total}</Text>
-        )}
+        {isEmpty ? <Text>Nic mi się nie kojarzy z wyszukiwaną frazą. Spróbuj ponownie w poniższym formularzu.</Text> : <Text>Liczba znalezionych artykułów: {total}</Text>}
       </div>
-      {!isEmpty && <List showExcerpt={false} showMedia={false} />}
+      {!isEmpty && <List showExcerpt={false} showMedia={false} articleSize="normal" />}
     </Results>
   );
 };

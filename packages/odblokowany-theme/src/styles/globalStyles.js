@@ -116,7 +116,7 @@ const documentSetup = css`
   }
   h3 {
     font-size: 1.125em;
-    line-height: 1.375em;
+    line-height: 1.389em;
     font-weight: bold;
     letter-spacing: -0.014em;
   }

@@ -29,7 +29,7 @@ const Theme = ({ state, libraries }) => {
           (data.isArchive && (
             <>
               <List showExcerpt={true} showMedia={true} />
-              <Sidebar />
+              {<Sidebar />}
             </>
           )) ||
           (data.isPostType && <Post />) ||
@@ -45,7 +45,7 @@ const Main = styled.div`
   display: flex;
   flex: 1 0 auto;
   max-width: 878px;
-  margin: 3.125em auto 0 auto;
+  margin: 3.125em auto;
   font-size: 16px;
   padding: 19px;
   justify-content: center;

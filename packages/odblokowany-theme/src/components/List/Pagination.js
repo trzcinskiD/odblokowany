@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../Link";
+import Button from "../../styles/Button";
 
 const Pagination = ({ state, actions, libraries }) => {
   const { totalPages } = state.source.get(state.router.link);
@@ -12,13 +13,13 @@ const Pagination = ({ state, actions, libraries }) => {
   const nextPageLink = libraries.source.stringify({
     path,
     page: page + 1,
-    query
+    query,
   });
 
   const prevPageLink = libraries.source.stringify({
     path,
     page: page - 1,
-    query
+    query,
   });
 
   useEffect(() => {
@@ -29,13 +30,13 @@ const Pagination = ({ state, actions, libraries }) => {
     <div>
       {isThereNextPage && (
         <Link link={nextPageLink}>
-          <Text>← Older posts</Text>
+          <Button>Starsze posty</Button>
         </Link>
       )}
       {isTherePreviousPage && isThereNextPage && " - "}
       {isTherePreviousPage && (
         <Link link={prevPageLink}>
-          <Text>Newer posts →</Text>
+          <Button>Nowsze posty</Button>
         </Link>
       )}
     </div>
@@ -43,5 +44,3 @@ const Pagination = ({ state, actions, libraries }) => {
 };
 
 export default connect(Pagination);
-
-const Text = styled.em``;
