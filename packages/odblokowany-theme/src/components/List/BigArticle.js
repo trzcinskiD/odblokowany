@@ -107,7 +107,7 @@ const Footer = styled.div`
     justify-content: center;
     align-content: center;
   }
-  & div:first-child > * {
+  & div::first-of-type > * {
     margin-right: auto;
   }
   & div:last-child > * {

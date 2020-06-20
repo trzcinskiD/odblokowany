@@ -7,8 +7,8 @@ import List from "./List";
 import Loading from "./Loading";
 import Page404 from "./Page404";
 import Title from "./Title";
-import Footer from "./Footer";
 import SearchResults from "./SearchResults";
+import Sidebar from "./Sidebar";
 
 const Theme = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -26,11 +26,15 @@ const Theme = ({ state, libraries }) => {
       <Main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
-          (data.isArchive && <List showExcerpt={true} showMedia={true} />) ||
+          (data.isArchive && (
+            <>
+              <List showExcerpt={true} showMedia={true} />
+              <Sidebar />
+            </>
+          )) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
       </Main>
-      <Footer />
     </>
   );
 };

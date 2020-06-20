@@ -7,6 +7,7 @@ const settings = {
       title: "Odblokowany",
       description:
         "Odblokowany - blog o decentralizacji i technologii blockchain",
+      brandDescription: "Pomagam bloggerom w zwiększeniu zaangażowania ich społeczności z wykorzystaniem kryptowaluty/tokenu.",
       social: {
         facebook: "https://www.facebook.com/Danonerk",
         linkedIn: "https://www.linkedin.com/in/damian-trzcinski/",

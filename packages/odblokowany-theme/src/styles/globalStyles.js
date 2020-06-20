@@ -25,10 +25,8 @@ const colorSetup = (colorOption) => {
           --text: #242423;
           --lightText: #333533;
           --border: #e5e5e5;
-          --special: #8b7300;
+          --special: #f5cb5c;
           --error: #b22910;
-          --shadow: #37363a;
-          --special-background: #c8b27229;
         }
       `;
   }
@@ -111,10 +109,10 @@ const documentSetup = css`
     line-height: 1.4em;
   }
   h2 {
-    font-size: 29px;
-    line-height: 46px;
-    margin-top: 49px;
-    margin-bottom: 19px;
+    font-size: 1.875em;
+    letter-spacing: -0.021em;
+    line-height: 1.4em;
+    font-weight: bold;
   }
   h3 {
     font-size: 1.125em;
@@ -147,24 +145,6 @@ const documentSetup = css`
   a:hover,
   a:focus {
     background-size: 100% 0.125em;
-  }
-  button {
-    transition: box-shadow 0.3s ease;
-    cursor: pointer;
-    border: 0;
-    background: var(--background);
-    padding: 0.6rem;
-    vertical-align: middle;
-    text-transform: uppercase;
-    font-size: 0.65em;
-    font-weight: 600;
-    &:hover {
-      box-shadow: var(--shadow) 0 0 10px 0;
-    }
-    &:disabled {
-      box-shadow: none;
-      cursor: default;
-    }
   }
   input {
     background: var(--white);

@@ -1,13 +1,7 @@
 import React from "react";
 import { styled, connect } from "frontity";
 import { IconContext } from "react-icons";
-import {
-  FaFacebookSquare,
-  FaLinkedin,
-  FaGithub,
-  FaGitlab,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaFacebookSquare, FaLinkedin, FaGithub, FaGitlab, FaEnvelope } from "react-icons/fa";
 
 const Footer = ({ state }) => {
   return (
@@ -20,12 +14,7 @@ const Footer = ({ state }) => {
           <a href={state.frontity.social.linkedIn} aria-label="LinkedIn">
             <FaLinkedin />
           </a>
-          <a
-            href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email"
-          >
+          <a href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`} target="_blank" rel="noopener noreferrer" aria-label="Email">
             <FaEnvelope />
           </a>
           <a href={state.frontity.social.gitHub} aria-label="Github">
@@ -46,14 +35,14 @@ export default connect(Footer);
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1.5em 0;
+  color: var(--lightText);
 `;
 
 const Icons = styled.div`
   display: flex;
   flex-direction: row;
   align-self: center;
-  margin: 1.5em;
+  margin-bottom: 1.5em;
   & a {
     background-image: none;
   }
@@ -67,8 +56,7 @@ const Icons = styled.div`
 
 const FooterText = styled.div`
   align-self: center;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    Helvetica, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 0.75em;
   line-height: 0.938em;
   letter-spacing: 0.15em;
