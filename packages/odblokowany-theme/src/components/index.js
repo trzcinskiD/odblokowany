@@ -9,6 +9,7 @@ import Page404 from "./Page404";
 import Title from "./Title";
 import SearchResults from "./SearchResults";
 import Sidebar from "./Sidebar";
+import CategoryResults from "./CategoryResults";
 
 const Theme = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -26,10 +27,11 @@ const Theme = ({ state, libraries }) => {
       <Main>
         {(data.isFetching && <Loading />) ||
           (isSearch && <SearchResults />) ||
+          (data.isTaxonomy && <CategoryResults />) ||
           (data.isArchive && (
             <>
-              <List showExcerpt={true} showMedia={true} />
-              {<Sidebar />}
+              <List />
+              <Sidebar />
             </>
           )) ||
           (data.isPostType && <Post />) ||
@@ -44,11 +46,11 @@ export default connect(Theme);
 const Main = styled.div`
   display: flex;
   flex: 1 0 auto;
-  max-width: 878px;
-  margin: 3.125em auto;
+  width: 1440px;
+  margin: 3em auto;
+  padding: 0 1.25em;
   font-size: 16px;
-  padding: 19px;
-  justify-content: center;
+  justify-content: space-between;
   @media only screen and (max-width: 376px) {
     margin: 0;
   }

@@ -33,7 +33,7 @@ export default ShareButton;
 const Menu = styled.div`
   color: var(--lightText);
   cursor: pointer;
-  font-size: ${({ size }) => size}em;
+  font-size: ${({ size }) => `${size}`};
   position: relative;
   .react-icons {
     cursor: pointer;

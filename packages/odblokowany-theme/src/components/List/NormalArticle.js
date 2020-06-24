@@ -58,7 +58,7 @@ const NormalArticle = ({ state, articleData }) => {
 export default connect(NormalArticle);
 
 const Article = styled.article`
-  width: 444px;
+  max-width: 444px;
 `;
 
 const Header = styled.div`

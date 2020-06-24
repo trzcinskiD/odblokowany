@@ -12,13 +12,17 @@ import ShareButton from "../ShareButton";
 
 const BigArticle = ({ state, articleData }) => {
   const date = new Date(articleData.date);
-  const { name: categoryName, link: categoryLink } = state.source["category"][articleData.categories[0]];
+  const { name: categoryName, link: categoryLink } = state.source["category"][
+    articleData.categories[0]
+  ];
 
   return (
-    <article>
+    <Article>
       <Header>
         <Link link={articleData.link}>
-          <h1 dangerouslySetInnerHTML={{ __html: articleData.title.rendered }} />
+          <h1
+            dangerouslySetInnerHTML={{ __html: articleData.title.rendered }}
+          />
         </Link>
       </Header>
       <InfoSection>
@@ -29,14 +33,24 @@ const BigArticle = ({ state, articleData }) => {
           </Info>
           <Info>
             <FaStopwatch />
-            <ButtonFont>Przeczytasz w {readTime(articleData.content.rendered)}</ButtonFont>
+            <ButtonFont>
+              Przeczytasz w {readTime(articleData.content.rendered)}
+            </ButtonFont>
           </Info>
         </IconContext.Provider>
       </InfoSection>
       <Link link={articleData.link}>
-        <FeaturedMedia id={articleData.featured_media} clickable={true} height={343} />
+        <FeaturedMedia
+          id={articleData.featured_media}
+          clickable={true}
+          height={343}
+        />
       </Link>
-      {articleData.excerpt && <Excerpt dangerouslySetInnerHTML={{ __html: articleData.excerpt.rendered }} />}
+      {articleData.excerpt && (
+        <Excerpt
+          dangerouslySetInnerHTML={{ __html: articleData.excerpt.rendered }}
+        />
+      )}
       <Footer>
         <div>
           <Link link={articleData.link}>
@@ -52,11 +66,16 @@ const BigArticle = ({ state, articleData }) => {
           </Link>
         </div>
       </Footer>
-    </article>
+    </Article>
   );
 };
 
 export default connect(BigArticle);
+
+const Article = styled.article`
+  max-width: 878px;
+  margin: 2em 2.5em;
+`;
 
 const Header = styled.div`
   display: flex;

@@ -5,6 +5,7 @@ import Link from "../Link";
 import Footer from "./Footer";
 import LinkFont from "../../styles/LinkFont";
 import Button from "../../styles/Button";
+import List from "../List"
 
 const Sidebar = ({ state }) => {
   return (
@@ -33,7 +34,8 @@ const Sidebar = ({ state }) => {
       </div>
       <Separator />
       <div>
-        <h3>Najpopularniejsze posty</h3>
+        <h3>Najnowsze posty</h3>
+        <List articleSize="small" maxCount={3} />
       </div>
       <Separator />
       <Footer />
@@ -43,7 +45,10 @@ const Sidebar = ({ state }) => {
 
 export default connect(Sidebar);
 
-const Container = styled.div``;
+const Container = styled.div`
+  max-width: 362px;
+  margin: 2em 2.5em;
+`;
 
 const Separator = styled.hr`
   margin: 3em 0;

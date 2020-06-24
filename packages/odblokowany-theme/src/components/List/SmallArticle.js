@@ -37,6 +37,7 @@ export default connect(SmallArticle);
 
 const Article = styled.article`
   width: 362px;
+  margin: 0.5em 0;
 `;
 
 const Header = styled.div`
