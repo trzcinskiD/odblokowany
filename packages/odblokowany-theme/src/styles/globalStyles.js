@@ -89,7 +89,6 @@ const documentSetup = css`
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
   }
   button,
   h1,

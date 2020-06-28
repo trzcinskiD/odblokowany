@@ -5,7 +5,7 @@ import Link from "../Link";
 import Footer from "./Footer";
 import LinkFont from "../../styles/LinkFont";
 import Button from "../../styles/Button";
-import List from "../List"
+import List from "../List";
 
 const Sidebar = ({ state }) => {
   return (
@@ -46,8 +46,8 @@ const Sidebar = ({ state }) => {
 export default connect(Sidebar);
 
 const Container = styled.div`
-  max-width: 362px;
   margin: 2em 2.5em;
+  flex: 1 3 0;
 `;
 
 const Separator = styled.hr`

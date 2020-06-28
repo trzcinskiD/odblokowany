@@ -20,4 +20,5 @@ const Container = styled.div`
   flex-direction: column;
   align-content: center;
   margin: 0 auto;
+  text-align: center;
 `;

@@ -56,7 +56,6 @@ const BigArticle = ({ state, articleData }) => {
 export default connect(BigArticle);
 
 const Article = styled.article`
-  max-width: 878px;
   margin: 2em 2.5em;
 `;
 

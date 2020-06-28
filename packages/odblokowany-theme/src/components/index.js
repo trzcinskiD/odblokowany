@@ -49,7 +49,8 @@ export default connect(Theme);
 const Main = styled.div`
   display: flex;
   flex: 1 0 auto;
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   margin: 3em auto;
   padding: 0 1.25em;
   font-size: 16px;

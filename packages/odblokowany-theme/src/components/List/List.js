@@ -31,6 +31,10 @@ const ArticleList = styled.section`
   ${({ grid }) => {
     if (grid) {
       return `display: flex; margin: -0.750em; & article { flex: 1 1 0px; margin: 0.750em; align-self: flex-end }`;
+    } else {
+      return `flex: 3 1 0;
+      display: flex;
+      flex-direction: column;`;
     }
   }}
 `;
