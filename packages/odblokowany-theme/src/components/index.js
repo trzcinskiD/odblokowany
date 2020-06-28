@@ -1,5 +1,6 @@
 import React from "react";
 import { Global, connect, Head, styled } from "frontity";
+import { IconContext } from "react-icons";
 import globalStyles from "../styles/globalStyles";
 import Nav from "./Nav";
 import Post from "./Post";
@@ -23,20 +24,22 @@ const Theme = ({ state, libraries }) => {
         <html lang="pl" />
       </Head>
       <Global styles={globalStyles} />
-      <Nav />
-      <Main>
-        {(data.isFetching && <Loading />) ||
-          (isSearch && <SearchResults />) ||
-          (data.isTaxonomy && <CategoryResults />) ||
-          (data.isArchive && (
-            <>
-              <List />
-              <Sidebar />
-            </>
-          )) ||
-          (data.isPostType && <Post />) ||
-          (data.is404 && <Page404 />)}
-      </Main>
+      <IconContext.Provider value={{ className: "react-icons" }}>
+        <Nav />
+        <Main>
+          {(data.isFetching && <Loading />) ||
+            (isSearch && <SearchResults />) ||
+            (data.isTaxonomy && <CategoryResults />) ||
+            (data.isArchive && (
+              <>
+                <List />
+                <Sidebar />
+              </>
+            )) ||
+            (data.isPostType && <Post />) ||
+            (data.is404 && <Page404 />)}
+        </Main>
+      </IconContext.Provider>
     </>
   );
 };
@@ -53,5 +56,11 @@ const Main = styled.div`
   justify-content: space-between;
   @media only screen and (max-width: 376px) {
     margin: 0;
+  }
+  .react-icons {
+    color: var(--lightText);
+  }
+  .react-icons:hover {
+    color: var(--text);
   }
 `;

@@ -1,29 +1,26 @@
 import React from "react";
 import { styled, connect } from "frontity";
-import { IconContext } from "react-icons";
 import { FaFacebookSquare, FaLinkedin, FaGithub, FaGitlab, FaEnvelope } from "react-icons/fa";
 
 const Footer = ({ state }) => {
   return (
     <Container>
       <Icons>
-        <IconContext.Provider value={{ className: "react-icons" }}>
-          <a href={state.frontity.social.facebook} aria-label="Facebook">
-            <FaFacebookSquare />
-          </a>
-          <a href={state.frontity.social.linkedIn} aria-label="LinkedIn">
-            <FaLinkedin />
-          </a>
-          <a href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`} target="_blank" rel="noopener noreferrer" aria-label="Email">
-            <FaEnvelope />
-          </a>
-          <a href={state.frontity.social.gitHub} aria-label="Github">
-            <FaGithub />
-          </a>
-          <a href={state.frontity.social.gitLab} aria-label="Gitlab">
-            <FaGitlab />
-          </a>
-        </IconContext.Provider>
+        <a href={state.frontity.social.facebook} aria-label="Facebook">
+          <FaFacebookSquare />
+        </a>
+        <a href={state.frontity.social.linkedIn} aria-label="LinkedIn">
+          <FaLinkedin />
+        </a>
+        <a href={`mailto:${state.frontity.social.mail}?subject=%5Bodblokowany.com%5D`} target="_blank" rel="noopener noreferrer" aria-label="Email">
+          <FaEnvelope />
+        </a>
+        <a href={state.frontity.social.gitHub} aria-label="Github">
+          <FaGithub />
+        </a>
+        <a href={state.frontity.social.gitLab} aria-label="Gitlab">
+          <FaGitlab />
+        </a>
       </Icons>
       <FooterText>&copy; odblokowany</FooterText>
     </Container>

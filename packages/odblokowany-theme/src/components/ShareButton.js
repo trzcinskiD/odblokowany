@@ -35,12 +35,6 @@ const Menu = styled.div`
   cursor: pointer;
   font-size: ${({ size }) => `${size}`};
   position: relative;
-  .react-icons {
-    cursor: pointer;
-  }
-  .react-icons:hover {
-    color: var(--text);
-  }
   .item {
     position: absolute;
     left: 0;

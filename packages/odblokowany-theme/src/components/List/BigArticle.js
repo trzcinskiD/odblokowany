@@ -1,6 +1,5 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import { IconContext } from "react-icons";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
 import Link from "../Link";
 import FeaturedMedia from "../Featured-media";
@@ -12,45 +11,29 @@ import ShareButton from "../ShareButton";
 
 const BigArticle = ({ state, articleData }) => {
   const date = new Date(articleData.date);
-  const { name: categoryName, link: categoryLink } = state.source["category"][
-    articleData.categories[0]
-  ];
+  const { name: categoryName, link: categoryLink } = state.source["category"][articleData.categories[0]];
 
   return (
     <Article>
       <Header>
         <Link link={articleData.link}>
-          <h1
-            dangerouslySetInnerHTML={{ __html: articleData.title.rendered }}
-          />
+          <h1 dangerouslySetInnerHTML={{ __html: articleData.title.rendered }} />
         </Link>
       </Header>
       <InfoSection>
-        <IconContext.Provider value={{ className: "react-icons" }}>
-          <Info>
-            <FaCalendarAlt />
-            <ButtonFont>{formatDate(date, "long")}</ButtonFont>
-          </Info>
-          <Info>
-            <FaStopwatch />
-            <ButtonFont>
-              Przeczytasz w {readTime(articleData.content.rendered)}
-            </ButtonFont>
-          </Info>
-        </IconContext.Provider>
+        <Info>
+          <FaCalendarAlt />
+          <ButtonFont>{formatDate(date, "long")}</ButtonFont>
+        </Info>
+        <Info>
+          <FaStopwatch />
+          <ButtonFont>Przeczytasz w {readTime(articleData.content.rendered)}</ButtonFont>
+        </Info>
       </InfoSection>
       <Link link={articleData.link}>
-        <FeaturedMedia
-          id={articleData.featured_media}
-          clickable={true}
-          height={343}
-        />
+        <FeaturedMedia id={articleData.featured_media} clickable={true} height={343} />
       </Link>
-      {articleData.excerpt && (
-        <Excerpt
-          dangerouslySetInnerHTML={{ __html: articleData.excerpt.rendered }}
-        />
-      )}
+      {articleData.excerpt && <Excerpt dangerouslySetInnerHTML={{ __html: articleData.excerpt.rendered }} />}
       <Footer>
         <div>
           <Link link={articleData.link}>
@@ -100,9 +83,6 @@ const InfoSection = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin: 1em 0;
-  .react-icons {
-    color: var(--lightText);
-  }
 `;
 
 const Info = styled.div`

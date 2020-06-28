@@ -1,6 +1,5 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import { IconContext } from "react-icons";
 import { FaSearch } from "react-icons/fa";
 import Link from "../Link";
 import SearchForm from "./SearchForm";
@@ -20,9 +19,7 @@ const Nav = ({ state, actions }) => {
       </NavMenuContainer>
       <NavSearchContainer>
         <SearchForm />
-        <IconContext.Provider value={{ className: "react-icons" }}>
-          <FaSearch onClick={actions.theme.openSearch} />
-        </IconContext.Provider>
+        <FaSearch onClick={actions.theme.openSearch} />
       </NavSearchContainer>
     </StyledNav>
   );

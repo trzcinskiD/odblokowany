@@ -1,6 +1,5 @@
 import React from "react";
 import { styled } from "frontity";
-import { IconContext } from "react-icons";
 import { FaCalendarAlt } from "react-icons/fa";
 import List from "./List";
 import Add from "./Add";
@@ -17,10 +16,8 @@ const Comment = ({ id, post, avatar, author, date, content, nestLvl, replyTo, se
         <div>
           <Author>{author}</Author>
           <PostInfo>
-            <IconContext.Provider value={{ className: "react-icons" }}>
-              <FaCalendarAlt />
-              <h5>{formatDate(date)}</h5>
-            </IconContext.Provider>
+            <FaCalendarAlt />
+            <h5>{formatDate(date)}</h5>
           </PostInfo>
           <Content
             dangerouslySetInnerHTML={{
@@ -55,7 +52,6 @@ const PostInfo = styled.div`
     font-size: 75%;
   }
   .react-icons {
-    color: var(--lightText);
     height: 0.75em;
     width: 0.75em;
   }

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import { IconContext } from "react-icons";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
 import Link from "../Link";
 import FeaturedMedia from "../Featured-media";
@@ -22,16 +21,14 @@ const NormalArticle = ({ state, articleData }) => {
         </Link>
       </Header>
       <InfoSection>
-        <IconContext.Provider value={{ className: "react-icons" }}>
-          <Info>
-            <FaCalendarAlt />
-            <ButtonFont size="small">{formatDate(date, "long")}</ButtonFont>
-          </Info>
-          <Info>
-            <FaStopwatch />
-            <ButtonFont size="small">Przeczytasz w {readTime(articleData.content.rendered)}</ButtonFont>
-          </Info>
-        </IconContext.Provider>
+        <Info>
+          <FaCalendarAlt />
+          <ButtonFont size="small">{formatDate(date, "long")}</ButtonFont>
+        </Info>
+        <Info>
+          <FaStopwatch />
+          <ButtonFont size="small">Przeczytasz w {readTime(articleData.content.rendered)}</ButtonFont>
+        </Info>
       </InfoSection>
       <Link link={articleData.link}>
         <FeaturedMedia id={articleData.featured_media} clickable={true} height={176} />
@@ -75,7 +72,6 @@ const InfoSection = styled.div`
   justify-content: space-between;
   margin: 0.5em 0;
   .react-icons {
-    color: var(--lightText);
     font-size: 0.85em;
   }
 `;

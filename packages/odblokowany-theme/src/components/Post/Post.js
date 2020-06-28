@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { connect, styled } from "frontity";
 import throttle from "lodash.throttle";
-import { IconContext } from "react-icons";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
 import List from "../List";
 import FeaturedMedia from "../Featured-media";
@@ -21,9 +20,7 @@ const Post = ({ state, actions, libraries }) => {
   useEffect(() => {
     actions.source.fetch("/");
     List.preload();
-    if (
-      contentRef.current.getBoundingClientRect().height < window.innerHeight
-    ) {
+    if (contentRef.current.getBoundingClientRect().height < window.innerHeight) {
       setShowComments(true);
     }
     window.addEventListener("scroll", throttleHandleScroll);
@@ -33,10 +30,7 @@ const Post = ({ state, actions, libraries }) => {
   }, []);
 
   const handleScroll = () => {
-    if (
-      window.pageYOffset >
-      contentRef.current.getBoundingClientRect().height / 2
-    ) {
+    if (window.pageYOffset > contentRef.current.getBoundingClientRect().height / 2) {
       setShowComments(true);
       window.removeEventListener("scroll", throttleHandleScroll);
     }
@@ -50,17 +44,15 @@ const Post = ({ state, actions, libraries }) => {
         <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {data.isPost && (
           <>
-            <IconContext.Provider value={{ className: "react-icons" }}>
-              <PostInfo>
-                <FaCalendarAlt />
-                <DateInfo>{formatDate(date, "long")}</DateInfo>
-              </PostInfo>
-              <PostInfo>
-                <FaStopwatch />
-                <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
-              </PostInfo>
-              <ShareButton shareUrl={state.frontity.url + state.router.link} />
-            </IconContext.Provider>
+            <PostInfo>
+              <FaCalendarAlt />
+              <DateInfo>{formatDate(date, "long")}</DateInfo>
+            </PostInfo>
+            <PostInfo>
+              <FaStopwatch />
+              <h5>Przeczytasz w {readTime(post.content.rendered)}</h5>
+            </PostInfo>
+            <ShareButton shareUrl={state.frontity.url + state.router.link} />
           </>
         )}
       </Header>
@@ -80,9 +72,6 @@ const Container = styled.div`
   @media only screen and (max-width: 385px) {
     max-width: 100vw;
     padding: 0.5em;
-  }
-  .react-icons {
-    color: var(--lightText);
   }
 `;
 
