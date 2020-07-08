@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../Link";
-import FeaturedMedia from "../Featured-media";
+import FeaturedMedia from "../FeaturedMedia";
 import LinkFont from "../../styles/LinkFont";
 
 const SmallArticle = ({ state, articleData }) => {
@@ -44,7 +44,7 @@ const Header = styled.div`
   display: flex;
   margin: 0.5em 0;
   & h4 {
-    margin: 0;
+    margin: 0 0 0.25em 0;
   }
 `;
 

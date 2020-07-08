@@ -37,7 +37,7 @@ export default Comment;
 
 const Container = styled.div`
   display: flex;
-  margin: 1rem 0 1rem ${({ commentNestLvl }) => (commentNestLvl === 1 ? 0 : 1.625 * commentNestLvl)}rem;
+  margin: 1em 0 1em ${({ commentNestLvl }) => (commentNestLvl === 1 ? 0 : 1.625 * commentNestLvl)}em;
 `;
 
 const Author = styled.h4`
@@ -48,7 +48,7 @@ const PostInfo = styled.div`
   display: flex;
   align-items: center;
   & h5 {
-    margin: 0 0 0 0.5rem;
+    margin: 0 0 0 0.5em;
     font-size: 75%;
   }
   .react-icons {
@@ -60,13 +60,13 @@ const PostInfo = styled.div`
 const Content = styled.div`
   font-size: 0.9em;
   p {
-    margin: 7px 0;
+    margin: 0.438em 0;
   }
 `;
 
 const Avatar = styled.img`
   border-radius: 100%;
-  height: calc(2.25 * 1rem);
-  width: calc(2.25 * 1rem);
-  margin: 1rem 1rem 0 0;
+  height: calc(2.25 * 1em);
+  width: calc(2.25 * 1em);
+  margin: 1em 1em 0 0;
 `;

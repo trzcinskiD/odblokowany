@@ -2,7 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import { FaCalendarAlt, FaStopwatch } from "react-icons/fa";
 import Link from "../Link";
-import FeaturedMedia from "../Featured-media";
+import FeaturedMedia from "../FeaturedMedia";
 import readTime from "../../util/readTime";
 import formatDate from "../../util/formatDate";
 import ButtonFont from "../../styles/ButtonFont";

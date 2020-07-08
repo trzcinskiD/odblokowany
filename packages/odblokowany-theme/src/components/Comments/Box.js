@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { styled } from "frontity";
 import Add from "./Add";
 import List from "./List";
 
@@ -8,17 +7,12 @@ const Box = ({ postId }) => {
   const formRef = useRef(null);
 
   return (
-    <CommentBox className="comment" id="comments">
-      <h3>Komentarze</h3>
+    <div className="comment" id="comments">
+      <h1>Komentarze</h1>
       <List parentId={0} postId={postId} nestLvl={0} replyTo={replyTo} setReplyTo={setReplyTo} formRef={formRef} />
       {replyTo ? null : <Add formRef={formRef} postId={postId} replyTo={replyTo} setReplyTo={setReplyTo} />}
-    </CommentBox>
+    </div>
   );
 };
 
 export default Box;
-
-const CommentBox = styled.div`
-  display: block;
-  margin: 20px 0;
-`;

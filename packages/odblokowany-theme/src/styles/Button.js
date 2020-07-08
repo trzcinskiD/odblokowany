@@ -1,6 +1,10 @@
+import React from "react";
 import { styled } from "frontity";
+import { motion } from "framer-motion";
 
-const Button = styled.button`
+export default (props) => <Button whileTap={{ scale: 0.9 }}>{props.children}</Button>;
+
+const Button = styled(motion.button)`
   white-space: nowrap;
   font-size: 0.75em;
   line-height: 1.417em;
@@ -25,5 +29,3 @@ const Button = styled.button`
     }
   }}
 `;
-
-export default Button;

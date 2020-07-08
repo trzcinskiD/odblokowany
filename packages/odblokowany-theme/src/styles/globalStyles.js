@@ -26,6 +26,7 @@ const colorSetup = (colorOption) => {
           --lightText: #333533;
           --border: #e5e5e5;
           --special: #f5cb5c;
+          --lightSpecial: #f5cb5c33;
           --error: #b22910;
         }
       `;
@@ -80,10 +81,6 @@ const documentSetup = css`
     display: flex;
     flex-direction: column;
     background-color: var(--background);
-    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  }
-  p {
-    font-size: 1em;
   }
   #root {
     height: 100%;
@@ -99,7 +96,11 @@ const documentSetup = css`
   h6,
   label,
   nav,
-  span {
+  span,
+  a,
+  body,
+  p,
+  textarea {
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   }
   h1 {
@@ -131,6 +132,13 @@ const documentSetup = css`
     line-height: 1.417em;
     color: var(--lightText);
   }
+  p,
+  li,
+  td {
+    font-size: 1.25em;
+    letter-spacing: -0.017em;
+    line-height: 1.4em;
+  }
   a,
   a:visited {
     color: inherit;
@@ -145,7 +153,8 @@ const documentSetup = css`
   a:focus {
     background-size: 100% 0.125em;
   }
-  input {
+  input,
+  textarea {
     background: var(--white);
     border: 1px solid var(--border);
     box-sizing: border-box;

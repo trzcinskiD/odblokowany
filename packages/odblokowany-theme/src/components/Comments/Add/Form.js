@@ -1,17 +1,32 @@
 import React from "react";
 import { styled } from "frontity";
+import Button from "../../../styles/Button";
 
-const Form = ({ comment, author, email, formIsSubmitting, formSubmittedSuccessfully, formSubmittedFailed, replyTo, formRef, setReplyTo, onSubmit, onChange, formErrors, formValid }) => {
+const Form = ({
+  comment,
+  author,
+  email,
+  formIsSubmitting,
+  formSubmittedSuccessfully,
+  formSubmittedFailed,
+  replyTo,
+  formRef,
+  setReplyTo,
+  onSubmit,
+  onChange,
+  formErrors,
+  formValid,
+}) => {
   const submitButtonText = (
-    <button type="button" disabled={!formValid} onClick={onSubmit}>
+    <Button type="button" disabled={!formValid} onClick={onSubmit}>
       {formIsSubmitting ? "Dodaję komentarz..." : "Dodaj komentarz"}
-    </button>
+    </Button>
   );
 
   const cancelReplyButton = replyTo ? (
-    <button type="button" onClick={() => setReplyTo(0)}>
+    <Button type="button" onClick={() => setReplyTo(0)}>
       Anuluj
-    </button>
+    </Button>
   ) : null;
 
   const successMessageMarkup = formSubmittedSuccessfully ? <p>Dzięki! Komentarz pojawi się na stronie po zatwierdzeniu.</p> : null;
@@ -28,13 +43,22 @@ const Form = ({ comment, author, email, formIsSubmitting, formSubmittedSuccessfu
 
   return (
     <div>
-      {replyTo ? <h4>Odpowiedz na komentarz</h4> : <h4>Dodaj komentarz</h4>}
+      {replyTo ? <h2>Odpowiedz na komentarz</h2> : <h2>Dodaj komentarz</h2>}
       <StyledForm ref={formRef}>
-        <div>
-          <input id="author" name="author" type="text" placeholder="Autor" required disabled={formIsSubmitting} value={author} onChange={onChange} />
-          <input id="email" type="email" name="email" placeholder="Email" required disabled={formIsSubmitting} value={email} onChange={onChange} />
-          <textarea id="comment" name="comment" placeholder="Wpisz swój komentarz" cols="45" rows="8" maxLength="65525" required disabled={formIsSubmitting} value={comment} onChange={onChange} />
-        </div>
+        <input id="author" name="author" type="text" placeholder="Autor" required disabled={formIsSubmitting} value={author} onChange={onChange} />
+        <input id="email" type="email" name="email" placeholder="Email" required disabled={formIsSubmitting} value={email} onChange={onChange} />
+        <textarea
+          id="comment"
+          name="comment"
+          placeholder="Wpisz swój komentarz"
+          cols="45"
+          rows="8"
+          maxLength="65525"
+          required
+          disabled={formIsSubmitting}
+          value={comment}
+          onChange={onChange}
+        />
         <Buttons>
           {cancelReplyButton}
           {submitButtonText}
@@ -54,22 +78,10 @@ export default Form;
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  input,
+  align-items: stretch;
+  & input,
   textarea {
-    font-family: inherit;
-    font-size: 0.9em;
-    line-height: inherit;
-    width: 100%;
-    background: var(--background);
-    outline: none;
-    border: none;
-    transition: box-shadow 0.3s ease;
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    &:focus {
-      box-shadow: var(--shadow) 0 0 4px 0;
-    }
+    margin-bottom: 1em;
   }
 `;
 
@@ -77,15 +89,15 @@ const Buttons = styled.div`
   align-self: flex-end;
   justify-content: space-between;
   & button {
-    margin: 0.5rem;
+    margin: 0.5em;
   }
+`;
+
+const FormInfo = styled.div`
+  text-align: center !important;
 `;
 
 const ErrorMessage = styled.p`
   color: var(--error);
   margin: 0;
-`;
-
-const FormInfo = styled.div`
-  text-align: center !important;
 `;

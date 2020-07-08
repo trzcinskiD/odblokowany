@@ -2,7 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
 
-const FeaturedMedia = ({ state, id, clickable = false, height }) => {
+const FeaturedMedia = ({ state, id, clickable = false, height, fullWidth = false }) => {
   const media = state.source.attachment[id];
   if (!media) return null;
   const srcset =
@@ -11,7 +11,7 @@ const FeaturedMedia = ({ state, id, clickable = false, height }) => {
       .reduce((final, current, index, array) => final.concat(`${current.join(" ")}w${index !== array.length - 1 ? ", " : ""}`), "") || null;
   return (
     <Container height={height}>
-      <StyledImage alt={media.title.rendered} src={media.source_url} srcSet={srcset} clickable={clickable} />
+      <StyledImage alt={media.title.rendered} src={media.source_url} srcSet={srcset} clickable={clickable} fullWidth={fullWidth} />
     </Container>
   );
 };
@@ -23,9 +23,17 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  display: block;
   height: 100%;
-  width: 100%;
-  object-fit: cover;
+  ${({ fullWidth }) =>
+    fullWidth
+      ? `  width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      object-fit: scale-down;`
+      : `width: 100%;
+  object-fit: cover;`}
   ${({ clickable }) => (clickable ? "&:hover { opacity: 0.9 }" : null)}
 `;

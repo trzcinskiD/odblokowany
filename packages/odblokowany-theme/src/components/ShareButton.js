@@ -33,8 +33,12 @@ export default ShareButton;
 const Menu = styled.div`
   color: var(--lightText);
   cursor: pointer;
-  font-size: ${({ size }) => `${size}`};
   position: relative;
+  ${({ size }) => `.react-icons {
+    color: var(--lightText);
+    height:${size}em; 
+    width:${size}em;
+  }
   .item {
     position: absolute;
     left: 0;
@@ -46,27 +50,27 @@ const Menu = styled.div`
     box-shadow: none;
   }
   .left-short {
-    transform: translateX(-1.5em);
+    transform: translateX(-${size * 2}em);
     transition-delay: 0.4s;
     opacity: 1;
     visibility: visible;
   }
   .right-short {
-    transform: translateX(1.5em);
+    transform: translateX(${size * 2}em);
     transition-delay: 0.4s;
     opacity: 1;
     visibility: visible;
   }
   .right-wide {
-    transform: translateX(3em);
+    transform: translateX(${size * 4}em);
     transition-delay: 0.2s;
     opacity: 1;
     visibility: visible;
   }
   .left-wide {
-    transform: translateX(-3em);
+    transform: translateX(-${size * 4}em);
     transition-delay: 0.2s;
     opacity: 1;
     visibility: visible;
-  }
+  }`}
 `;

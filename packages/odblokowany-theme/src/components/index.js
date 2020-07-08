@@ -53,10 +53,16 @@ const Main = styled.div`
   width: 100%;
   margin: 3em auto;
   padding: 0 1.25em;
-  font-size: 16px;
   justify-content: space-between;
-  @media only screen and (max-width: 376px) {
-    margin: 0;
+  font-size: 16px;
+  @media (max-width: 992px) {
+    font-size: 14px;
+  }
+  @media (max-width: 767.98px) {
+    font-size: 13px;
+  }
+  @media (max-width: 575.98px) {
+    font-size: 12px;
   }
   .react-icons {
     color: var(--lightText);
