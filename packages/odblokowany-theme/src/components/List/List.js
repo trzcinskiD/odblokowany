@@ -30,11 +30,14 @@ export default connect(List);
 const ArticleList = styled.section`
   ${({ grid }) => {
     if (grid) {
-      return `display: flex; margin: -0.750em; flex-flow: wrap; & article { flex: 1 1 0px; margin: 0.750em; align-self: flex-end }`;
+      return `display: flex; margin: -0.750em; flex-flow: wrap; & article { flex: 1 1 18em; margin: 0.750em; align-self: flex-end }`;
     } else {
       return `flex: 3 1 0;
       display: flex;
-      flex-direction: column;`;
+      flex-direction: column;
+      @media (max-width: 575.98px) {
+        align-items: center;
+      }`;
     }
   }}
 `;

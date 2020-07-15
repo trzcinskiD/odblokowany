@@ -19,7 +19,7 @@ const SearchResults = ({ state, libraries }) => {
         <h1 label="Search">{`Szukałeś “${reverseFormat(searchQuery)}”`}</h1>
         {isEmpty ? <h2>Nic mi się nie kojarzy z wyszukiwaną frazą. Spróbuj ponownie w poniższym formularzu.</h2> : <h2>Liczba znalezionych artykułów: {total}</h2>}
       </div>
-      {!isEmpty && <List showExcerpt={false} showMedia={false} articleSize="normal" grid/>}
+      {!isEmpty && <List showExcerpt={false} showMedia={false} articleSize="normal" grid />}
       <Pagination />
     </Results>
   );
@@ -31,4 +31,7 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 2.5em;
+  @media (max-width: 767.98px) {
+    text-align: center;
+  }
 `;

@@ -20,10 +20,16 @@ export default connect(FeaturedMedia);
 
 const Container = styled.div`
   height: ${({ height }) => height}px;
+  @media (max-width: 767.98px) {
+    height: unset;
+  }
 `;
 
 const StyledImage = styled(Image)`
   height: 100%;
+  @media (max-width: 767.98px) {
+    object-fit: scale-down;
+  }
   ${({ fullWidth }) =>
     fullWidth
       ? `  width: 100vw;

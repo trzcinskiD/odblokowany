@@ -48,6 +48,10 @@ export default connect(Sidebar);
 const Container = styled.div`
   margin: 2em 2.5em;
   flex: 1 3 0;
+  @media (max-width: 767.98px) {
+    margin: 2em 1em;
+    text-align: center;
+  }
 `;
 
 const Separator = styled.hr`

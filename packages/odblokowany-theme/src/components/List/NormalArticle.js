@@ -64,6 +64,10 @@ const Header = styled.div`
   & h3 {
     margin: 0;
   }
+  @media (max-width: 767.98px) {
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 const InfoSection = styled.div`
@@ -73,6 +77,10 @@ const InfoSection = styled.div`
   margin: 0.5em 0;
   .react-icons {
     font-size: 0.85em;
+  }
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -84,6 +92,9 @@ const Info = styled.div`
   padding: 0 0.5em;
   & span {
     margin-left: 0.5em;
+  }
+  @media (max-width: 767.98px) {
+    margin-bottom: 0.5em;
   }
 `;
 
@@ -106,5 +117,12 @@ const Footer = styled.div`
   & div:last-child > * {
     margin-right: 0.5em;
     margin-left: auto;
+    @media (max-width: 767.98px) {
+      margin-top: 0.5em;
+    }
+  }
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;

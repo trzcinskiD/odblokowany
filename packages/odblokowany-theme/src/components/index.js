@@ -60,9 +60,10 @@ const Main = styled.div`
   }
   @media (max-width: 767.98px) {
     font-size: 13px;
+    padding: 0;
   }
   @media (max-width: 575.98px) {
-    font-size: 12px;
+    flex-direction: column;
   }
   .react-icons {
     color: var(--lightText);

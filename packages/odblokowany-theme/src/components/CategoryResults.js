@@ -22,4 +22,7 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 2.5em;
+  @media (max-width: 767.98px) {
+    text-align: center;
+  }
 `;

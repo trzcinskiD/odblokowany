@@ -57,6 +57,9 @@ export default connect(BigArticle);
 
 const Article = styled.article`
   margin: 2em 2.5em;
+  @media (max-width: 767.98px) {
+    margin: 2em 1em;
+  }
 `;
 
 const Header = styled.div`
@@ -66,6 +69,10 @@ const Header = styled.div`
   justify-content: space-between;
   & h1 {
     margin: 0;
+  }
+  @media (max-width: 767.98px) {
+    justify-content: center;
+    text-align: center;
   }
 `;
 
@@ -82,6 +89,10 @@ const InfoSection = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin: 1em 0;
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Info = styled.div`
@@ -108,5 +119,12 @@ const Footer = styled.div`
   }
   & div:last-child > * {
     margin-left: auto;
+  }
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    align-items: center;
+    & div {
+      margin-top: 0.5em;
+    }
   }
 `;

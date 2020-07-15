@@ -86,6 +86,10 @@ export default connect(Post);
 const Container = styled.div`
   max-width: 75em;
   margin: 2em auto;
+  overflow-wrap: anywhere;
+  @media (max-width: 767.98px) {
+    padding: 0 1em;
+  }
 `;
 
 const Header = styled.div`
