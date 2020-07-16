@@ -95,6 +95,7 @@ const NavActionContainer = styled.div`
     background-color: white;
     padding: 1em;
     transform: ${({ isDrawerOpen }) => (isDrawerOpen ? `translateX(0)` : `translateX(100%)`)};
+    transition: all 0.5s ease;
     }
   }
 `;
@@ -134,6 +135,7 @@ const NavSearch = styled.div`
   & input {
     @media (max-width: 767.98px) {
       text-align: center;
+      transition: all 0.5s ease;
     }
   }
 `;

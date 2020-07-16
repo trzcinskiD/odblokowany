@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
+import { motion } from "framer-motion";
 
 const FeaturedMedia = ({ state, id, clickable = false, height, fullWidth = false }) => {
   const media = state.source.attachment[id];
@@ -10,7 +11,7 @@ const FeaturedMedia = ({ state, id, clickable = false, height, fullWidth = false
       .map((item) => [item.source_url, item.width])
       .reduce((final, current, index, array) => final.concat(`${current.join(" ")}w${index !== array.length - 1 ? ", " : ""}`), "") || null;
   return (
-    <Container height={height}>
+    <Container height={height} whileHover={{ scale: 1.05 }}>
       <StyledImage alt={media.title.rendered} src={media.source_url} srcSet={srcset} clickable={clickable} fullWidth={fullWidth} />
     </Container>
   );
@@ -18,7 +19,7 @@ const FeaturedMedia = ({ state, id, clickable = false, height, fullWidth = false
 
 export default connect(FeaturedMedia);
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   height: ${({ height }) => height}px;
   @media (max-width: 767.98px) {
     height: unset;

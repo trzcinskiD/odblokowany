@@ -50,25 +50,25 @@ const Menu = styled.div`
     box-shadow: none;
   }
   .left-short {
-    transform: translateX(-${size * 2}em);
+    transform: translateX(-${size * 1.5}em);
     transition-delay: 0.4s;
     opacity: 1;
     visibility: visible;
   }
   .right-short {
-    transform: translateX(${size * 2}em);
+    transform: translateX(${size * 1.5}em);
     transition-delay: 0.4s;
     opacity: 1;
     visibility: visible;
   }
   .right-wide {
-    transform: translateX(${size * 4}em);
+    transform: translateX(${size * 3}em);
     transition-delay: 0.2s;
     opacity: 1;
     visibility: visible;
   }
   .left-wide {
-    transform: translateX(-${size * 4}em);
+    transform: translateX(-${size * 3}em);
     transition-delay: 0.2s;
     opacity: 1;
     visibility: visible;
