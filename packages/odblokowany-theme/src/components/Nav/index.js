@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect, styled } from "frontity";
+import { motion } from "framer-motion";
 import { FaSearch, FaBars } from "react-icons/fa";
 import Link from "../Link";
 import SearchForm from "./SearchForm";
@@ -32,7 +33,7 @@ const Nav = ({ state, actions }) => {
           <h3>{state.frontity.title}</h3>
         </Link>
       </NavLogo>
-      <NavActionContainer ref={drawerRef} isDrawerOpen={isDrawerOpen}>
+      <NavActionContainer ref={drawerRef} style={{ x: "100%" }} animate={{ x: isDrawerOpen ? 0 : "100%" }}>
         <NavMenu>
           {state.theme.menu.map(([name, link]) => (
             <Link key={name} link={link}>
@@ -80,12 +81,15 @@ const Navbar = styled.nav`
 
 const NavLogo = styled.div``;
 
-const NavActionContainer = styled.div`
+const NavActionContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   overflow-wrap: anywhere;
   width: 100%;
+  @media (min-width: 767.98px) {
+  transform: none !important;
+}
   @media (max-width: 767.98px) {
     position: fixed;
     right: 0;
@@ -94,8 +98,6 @@ const NavActionContainer = styled.div`
     width: fit-content;
     background-color: white;
     padding: 1em;
-    transform: ${({ isDrawerOpen }) => (isDrawerOpen ? `translateX(0)` : `translateX(100%)`)};
-    transition: all 0.5s ease;
     }
   }
 `;

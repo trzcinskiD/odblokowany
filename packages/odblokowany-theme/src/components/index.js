@@ -69,6 +69,6 @@ const Main = styled.div`
     color: var(--lightText);
   }
   .react-icons:hover {
-    color: var(--text);
+    color: var(--special);
   }
 `;
