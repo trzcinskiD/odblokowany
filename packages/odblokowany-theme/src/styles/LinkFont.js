@@ -17,6 +17,9 @@ const LinkFont = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   color: var(--lightText);
+  &:hover {
+    color: var(--special);
+  }
 `;
 
 export default LinkFont;

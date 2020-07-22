@@ -124,7 +124,10 @@ const Content = styled.div`
   margin: 0 auto;
   max-width: 57em;
   & a {
-    background-color: var(--lightSpecial);
+    color: var(--black);
+  }
+  & p a {
+    font-weight: 500;
   }
   & li {
     margin-bottom: 1em;

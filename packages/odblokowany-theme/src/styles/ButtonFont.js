@@ -17,6 +17,9 @@ const ButtonFont = styled.span`
   font-weight: 700;
   text-transform: uppercase;
   color: var(--lightText);
+  &:hover {
+    color: var(--special);
+  }
 `;
 
 export default ButtonFont;

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import logoImg from "../../img/logo.png";
+import lightLogo from "../../img/light_logo_transparent_withoutTitle.png";
+import darkLogo from "../../img/dark_logo_transparent_withoutTitle.png";
 import Link from "../Link";
 import Footer from "./Footer";
 import LinkFont from "../../styles/LinkFont";
@@ -11,7 +12,7 @@ const Sidebar = ({ state }) => {
   return (
     <Container>
       <div>
-        <img src={logoImg} />
+        <Logo src={state.theme.mode === "dark" ? lightLogo : darkLogo} />
         <h1>{state.frontity.title}</h1>
         <p>{state.frontity.brandDescription}</p>
       </div>
@@ -48,10 +49,15 @@ export default connect(Sidebar);
 const Container = styled.div`
   margin: 2em 2.5em;
   flex: 1 3 0;
+  text-align: center;
   @media (max-width: 767.98px) {
     margin: 2em 1em;
-    text-align: center;
   }
+`;
+
+const Logo = styled.img`
+  height: 10em;
+  width: 10em;
 `;
 
 const Separator = styled.hr`

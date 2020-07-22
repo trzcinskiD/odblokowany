@@ -4,16 +4,30 @@ import InterMediumLatin from "./fonts/inter/Inter-Medium.woff2";
 import InterSemiBoldLatin from "./fonts/inter/Inter-SemiBold.woff2";
 import InterBoldLatin from "./fonts/inter/Inter-Bold.woff2";
 
-const colorSetup = (colorOption) => {
-  switch (colorOption) {
-    case "1":
+const colorSetup = (mode) => {
+  switch (mode) {
+    case "dark":
       return css`
         :root {
-          --bg: #ebebea;
-          --shadow: #c3b6af;
-          --text-color: #415146;
-          --lightText: #c7995d;
+          --white: #121212;
+          --black: #fff;
+          --background: #242423;
+          --text: #e5e5e5;
+          --lightText: #9e9e9e;
+          --border: #4a4a49;
+          --special: #ecd79e;
+          --lightSpecial: #f5cb5c33;
           --error: #b22910;
+        }
+        h1,
+        h2,
+        h3,
+        strong {
+          font-weight: 600;
+        }
+        h4,
+        h5 {
+          font-weight: 400;
         }
       `;
     default:
@@ -81,6 +95,7 @@ const documentSetup = css`
     display: flex;
     flex-direction: column;
     background-color: var(--background);
+    transition: background-color 500ms;
   }
   #root {
     height: 100%;
@@ -135,7 +150,7 @@ const documentSetup = css`
   p,
   li,
   td {
-    font-size: 1.25em;
+    font-size: 1.125em;
     letter-spacing: -0.017em;
     line-height: 1.4em;
   }
@@ -155,10 +170,14 @@ const documentSetup = css`
   }
   input,
   textarea {
+    color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);
     box-sizing: border-box;
     padding: 0.75em 1.5em;
+    &::placeholder {
+      color: var(--lightText);
+    }
     &:focus {
       outline-color: var(--special);
     }
@@ -173,6 +192,6 @@ const documentSetup = css`
   }
 `;
 
-const globalStyles = (colorOption) => css([colorSetup(colorOption), documentSetup]);
+const globalStyles = (mode) => css(documentSetup, [colorSetup(mode)]);
 
 export default globalStyles;

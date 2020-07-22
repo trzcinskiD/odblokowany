@@ -23,7 +23,7 @@ const Theme = ({ state, libraries }) => {
         <meta name="description" content={state.frontity.description} />
         <html lang="pl" />
       </Head>
-      <Global styles={globalStyles} />
+      <Global styles={globalStyles(state.theme.mode)} />
       <IconContext.Provider value={{ className: "react-icons" }}>
         <Nav />
         <Main>
