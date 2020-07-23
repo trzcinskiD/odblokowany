@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { connect, styled } from "frontity";
 import { motion } from "framer-motion";
 import { FaSearch, FaBars, FaMoon, FaSun } from "react-icons/fa";
@@ -6,8 +6,8 @@ import Link from "../Link";
 import SearchForm from "./SearchForm";
 
 const Nav = ({ state, actions }) => {
-  const { isDrawerOpen, mode, setLightMode, setDarkMode } = state.theme;
-  const { openSearch, toggleDrawer } = actions.theme;
+  const { isDrawerOpen, mode } = state.theme;
+  const { openSearch, toggleDrawer, setLightMode, setDarkMode } = actions.theme;
   const drawerRef = useRef(null);
 
   const openDrawer = () => {
