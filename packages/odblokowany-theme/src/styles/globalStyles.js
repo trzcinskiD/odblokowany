@@ -15,7 +15,7 @@ const colorSetup = (mode) => {
           --text: #e5e5e5;
           --lightText: #9e9e9e;
           --border: #4a4a49;
-          --special: #ecd79e;
+          --special: #f5cb5c;
           --lightSpecial: #f5cb5c33;
           --error: #b22910;
         }

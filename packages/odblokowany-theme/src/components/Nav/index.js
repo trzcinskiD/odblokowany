@@ -6,11 +6,12 @@ import Link from "../Link";
 import SearchForm from "./SearchForm";
 
 const Nav = ({ state, actions }) => {
-  const [isDrawerOpen, toggleDrawer] = useState(false);
+  const { isDrawerOpen, mode, setLightMode, setDarkMode } = state.theme;
+  const { openSearch, toggleDrawer } = actions.theme;
   const drawerRef = useRef(null);
 
   const openDrawer = () => {
-    actions.theme.openSearch();
+    openSearch();
     toggleDrawer(true);
   };
 
@@ -42,9 +43,9 @@ const Nav = ({ state, actions }) => {
           ))}
         </NavMenu>
         <NavSearch>
-          <SearchForm isDrawerOpen={isDrawerOpen} />
-          <FaSearch onClick={actions.theme.openSearch} />
-          {state.theme.mode === "dark" ? <FaSun onClick={actions.theme.setLightMode} /> : <FaMoon onClick={actions.theme.setDarkMode} />}
+          <SearchForm />
+          <FaSearch onClick={openSearch} />
+          {mode === "dark" ? <FaSun onClick={setLightMode} /> : <FaMoon onClick={setDarkMode} />}
         </NavSearch>
       </NavActionContainer>
       <NavHamburger>
@@ -97,8 +98,8 @@ const NavActionContainer = styled(motion.div)`
   overflow-wrap: anywhere;
   width: 100%;
   @media (min-width: 767.98px) {
-  transform: none !important;
-}
+    transform: none !important;
+  }
   @media (max-width: 767.98px) {
     position: fixed;
     right: 0;
@@ -107,7 +108,9 @@ const NavActionContainer = styled(motion.div)`
     width: fit-content;
     background-color: var(--white);
     padding: 1em;
-    }
+    height: 100%;
+    justify-content: flex-end;
+    border-left: 1px solid var(--border);
   }
 `;
 

@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import OutsideClickHandler from "react-outside-click-handler";
 import useFocusEffect from "../../util/hooks/use-focus-effect";
 
-const SearchForm = ({ state, actions, libraries, isDrawerOpen }) => {
+const SearchForm = ({ state, actions, libraries }) => {
   const parse = libraries.source.parse(state.router.link);
   const searchQuery = parse.query["s"];
-  const { isSearchOpen } = state.theme;
+  const { isSearchOpen, isDrawerOpen } = state.theme;
 
   const inputRef = useRef();
 

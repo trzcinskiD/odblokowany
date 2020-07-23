@@ -9,22 +9,20 @@ const odblokowanyTheme = {
   state: {
     theme: {
       isSearchOpen: false,
+      isDrawerOpen: false,
       mode: "light",
     },
   },
   actions: {
     theme: {
       afterCSR: ({ actions }) => {
-        console.log("ustalam mode");
         if (window.localStorage.getItem("mode") === "dark") actions.theme.setDarkMode();
       },
       setLightMode: ({ state }) => {
-        console.log("chcę jaśniej");
         state.theme.mode = "light";
         window.localStorage.setItem("mode", "light");
       },
       setDarkMode: ({ state }) => {
-        console.log("chcę ciemniej");
         state.theme.mode = "dark";
         window.localStorage.setItem("mode", "dark");
       },
@@ -33,6 +31,9 @@ const odblokowanyTheme = {
       },
       closeSearch: ({ state }) => {
         state.theme.isSearchOpen = false;
+      },
+      toggleDrawer: ({ state }) => (option) => {
+        state.theme.isDrawerOpen = option;
       },
     },
   },

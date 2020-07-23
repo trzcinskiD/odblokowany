@@ -26,7 +26,7 @@ const Theme = ({ state, libraries }) => {
       <Global styles={globalStyles(state.theme.mode)} />
       <IconContext.Provider value={{ className: "react-icons" }}>
         <Nav />
-        <Main>
+        <Main isDrawerOpen={state.theme.isDrawerOpen}>
           {(data.isFetching && <Loading />) ||
             (isSearch && <SearchResults />) ||
             (data.isTaxonomy && <CategoryResults />) ||
@@ -55,6 +55,7 @@ const Main = styled.div`
   padding: 0 1.25em;
   justify-content: space-between;
   font-size: 16px;
+  ${({ isDrawerOpen }) => (isDrawerOpen ? "opacity: 0.4;" : null)}
   @media (max-width: 992px) {
     font-size: 14px;
   }
