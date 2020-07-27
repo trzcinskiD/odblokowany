@@ -14,9 +14,10 @@ import Link from "../Link";
 
 const Post = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
+  console.log(data);
   const post = state.source[data.type][data.id];
   const date = new Date(post.date);
-  const { name: categoryName, link: categoryLink } = state.source["category"][post.categories[0]];
+  const { name: categoryName, link: categoryLink } = post.categories ? state.source["category"][post.categories[0]] : ["", ""];
   const Html2React = libraries.html2react.Component;
   const contentRef = useRef(null);
   const [showComments, setShowComments] = useState(false);
@@ -70,11 +71,13 @@ const Post = ({ state, actions, libraries }) => {
         <div>
           <ShareButton shareUrl={post.link} size={1.5} />
         </div>
-        <div>
-          <Link link={categoryLink}>
-            <LinkFont>{categoryName}</LinkFont>
-          </Link>
-        </div>
+        {!data.isPage && (
+          <div>
+            <Link link={categoryLink}>
+              <LinkFont>{categoryName}</LinkFont>
+            </Link>
+          </div>
+        )}
       </Footer>
       {data.isPost && showComments && <Comments postId={post.id} />}
     </Container>
@@ -89,6 +92,7 @@ const Container = styled.div`
   overflow-wrap: anywhere;
   @media (max-width: 767.98px) {
     padding: 0 1em;
+    max-width: 100vw;
   }
 `;
 
@@ -164,6 +168,8 @@ const Content = styled.div`
     & img {
       position: static;
       max-width: 100% !important;
+      height: auto;
+      object-fit: scale-down;
     }
     &.alignfull {
       width: 100%;
