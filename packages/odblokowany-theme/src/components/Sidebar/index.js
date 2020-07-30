@@ -5,8 +5,8 @@ import darkLogo from "../../img/dark_logo_transparent_withoutTitle.png";
 import Link from "../Link";
 import Footer from "./Footer";
 import LinkFont from "../../styles/LinkFont";
-import Button from "../../styles/Button";
 import List from "../List";
+import NewsletterForm from "./NewsletterForm";
 
 const Sidebar = ({ state }) => {
   return (
@@ -27,11 +27,7 @@ const Sidebar = ({ state }) => {
       <Separator />
       <div>
         <h3>Bądź na bieżąco. Zapisz się do newslettera.</h3>
-        <NewsletterForm>
-          <input placeholder="Jak się do Ciebie zwracać?" />
-          <input placeholder="E-mail" />
-          <Button>Zapisuję się</Button>
-        </NewsletterForm>
+        <NewsletterForm />
       </div>
       <Separator />
       <div>
@@ -62,17 +58,4 @@ const Logo = styled.img`
 
 const Separator = styled.hr`
   margin: 3em 0;
-`;
-
-const NewsletterForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  & button {
-    align-self: center;
-  }
-  & input {
-    margin-bottom: 1.5em;
-    width: 100%;
-  }
 `;
