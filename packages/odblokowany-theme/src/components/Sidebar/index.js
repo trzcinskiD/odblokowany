@@ -27,7 +27,7 @@ const Sidebar = ({ state }) => {
       <Separator />
       <div>
         <h3>Bądź na bieżąco. Zapisz się do newslettera.</h3>
-        <NewsletterForm />
+        {/* <NewsletterForm /> */}
       </div>
       <Separator />
       <div>
