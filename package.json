@@ -22,6 +22,6 @@
     "@frontity/tiny-router": "^1.2.1",
     "@frontity/wp-source": "^1.8.1",
     "frontity": "^1.10.1",
-    "odblokowany-theme": "./packages/odblokowany-theme"
+    "frontity-odblokowany-theme": "./packages/frontity-odblokowany-theme"
   }
 }

@@ -2,7 +2,7 @@ import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 
 const odblokowanyTheme = {
-  name: "odblokowany-theme",
+  name: "frontity-odblokowany-theme",
   roots: {
     theme: Theme,
   },

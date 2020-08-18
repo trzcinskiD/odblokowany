@@ -18,7 +18,7 @@ const settings = {
   },
   packages: [
     {
-      name: "odblokowany-theme",
+      name: "frontity-odblokowany-theme",
       state: {
         theme: {
           menu: [
