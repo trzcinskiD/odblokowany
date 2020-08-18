@@ -4,6 +4,22 @@
   "description": "Default theme for 'Odblokowany' blog",
   "author": "trzcinskid",
   "license": "GNU AGPLv3",
+  "keywords": [
+    "wordpress",
+    "frontity",
+    "frontity-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trzcinskiD/odblokowany"
+  },
+  "bugs": {
+    "url": "https://github.com/trzcinskiD/odblokowany/issues"
+  },
+  "homepage": "https://github.com/trzcinskiD/odblokowany#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@frontity/components": "^1.5.0",
     "@frontity/html2react": "^1.3.4",
