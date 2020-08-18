@@ -19,7 +19,7 @@ const Sidebar = ({ state }) => {
       <Separator />
       <div>
         <h2>O mnie</h2>
-        <p>Informacja wstępna o mnie</p>
+        <p>Interesuję sie blockchain, zarabiam na kryptowalutach i...</p>
         <Link link={`/about/`}>
           <LinkFont>Chcę więcej..</LinkFont>
         </Link>

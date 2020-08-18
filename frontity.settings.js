@@ -6,7 +6,7 @@ const settings = {
       devUrl: "https://localhost:3000",
       title: "Odblokowany",
       description: "Odblokowany - blog o decentralizacji i technologii blockchain",
-      brandDescription: "Pomagam blogerom w zwiększeniu zaangażowania ich społeczności z wykorzystaniem kryptowaluty/tokenu.",
+      brandDescription: "",
       social: {
         facebook: "https://www.facebook.com/Danonerk",
         linkedIn: "https://www.linkedin.com/in/damian-trzcinski/",
